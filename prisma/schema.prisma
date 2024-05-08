@@ -45,6 +45,7 @@ model User {
   email        String  @unique
   firstname    String
   lastname     String
-  passwordHash String
+  password     String
+  isAdmin      Boolean @default(false)
   Order        Order[]
 }
