@@ -24,11 +24,8 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-<<<<<<< HEAD:verkkokauppa-projekti/package.json
     "postcss": "^8.4.38",
-=======
     "prisma": "^5.13.0",
->>>>>>> d3deab9c5f19ac3b7c323012e0a8c88f6e6541d3:package.json
     "vite": "^5.2.0"
   }
 }
