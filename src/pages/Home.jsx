@@ -1,7 +1,7 @@
 import React from 'react'
 import SlickSlider from '../components/SlickSlider'
 
-const home = () => {
+const Home = () => {
   return (
     <div>
         <h1>Home</h1>
@@ -11,4 +11,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home
