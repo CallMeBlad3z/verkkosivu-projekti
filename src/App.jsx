@@ -7,13 +7,15 @@ import AdminDashboard from './pages/AdminDashboard';
 import UserDashboard from './pages/UserDashboard';
 import Navbar from './components/Navbar';
 import Cart from './pages/Cart';
-
+import Header from './components/Header';
+import Footer from './components/Footer';
 function App() {
 	
 
 	return (
 		<BrowserRouter>
-		<Navbar />
+		<Header />
+	    <Navbar />
 		  <Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/login" element={<Login />} />
@@ -22,6 +24,7 @@ function App() {
 			<Route path="/user" element={<UserDashboard />} />
 			<Route path="/cart" element={<Cart />} />
 		  </Routes>
+		<Footer />  
 		</BrowserRouter>
 	);
 }
