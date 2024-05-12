@@ -2,7 +2,8 @@
 
 body {
   text-align: center;
-  padding-top: 140px; /* Adjust this value as needed */
+  padding-top: 15px; /* Adjust this value as needed */
+  background-color: azure;
 }
 
 h1 {
@@ -10,13 +11,27 @@ h1 {
   line-height: 1.1;
 }
 
-.navBar {
+.Header {
   display: flex;
-  justify-content: space-around;
-  gap: 2em;
-  position: absolute;
-  left: 50%;
-  top: 15%; /* Add this line */
-  transform: translate(-50%, -50%); /* Change this line */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+.navBar {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  position: sticky;
+  top: 50px; /* Adjust this value based on the height of your Header */
+  z-index: 100;
+}
+
+.Footer {
+  color: black;
+  font-style: italic;
+  font-size: 16px;
+  position: relative;
+  bottom: 10px;
+  margin-top: 120px; /* Add some space above the footer */
+}

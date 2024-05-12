@@ -4,7 +4,7 @@ import SlickSlider from '../components/SlickSlider'
 const Home = () => {
   return (
     <div>
-        <h1>Home</h1>
+        <p>Etusivu pälä pälä höpö höpö</p>
         <br /> 
         <SlickSlider />
     </div>

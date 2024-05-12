@@ -18,7 +18,6 @@ const SlickSlider = () => {
 
   return (
     <div>
-      <h2>Carousel Component</h2>
       <Slider {...settings}>
         <div>
   
