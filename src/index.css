@@ -1,9 +1,27 @@
+/* Breakpoints */
 
+@media only screen and (min-width: 475px) {
+  /** Sääntöjä tänne */
+  }
+  
+  @media only screen and (min-width: 640px) {
+  /** Sääntöjä tänne */
+  }
+  
+  @media only screen and (min-width: 768px) {
+  /** Sääntöjä tänne */
+  }
+  
+  @media only screen and (min-width: 1024px) {
+  /** Sääntöjä tänne */
+  }
+
+
+/* General Styling */
 
 body {
-  text-align: center;
-  padding-top: 15px; /* Adjust this value as needed */
   background-color: azure;
+  margin: 0;                    /* Todella outo margin 8px bodyssa, vaikka sellaista sääntöä ei täällä missään ole mainittu. Tämä on nyt väliaikainen ratkaisu. - Santeri */
 }
 
 h1 {
@@ -11,21 +29,47 @@ h1 {
   line-height: 1.1;
 }
 
-.Header {
+
+/* Navbar Styling */
+
+.navbar {
   display: flex;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color:antiquewhite;
+  padding: 10px;
 }
 
-.navBar {
-  display: flex;
+.navbar-list {
+  flex-direction: row;
   justify-content: center;
-  gap: 1em;
-  position: sticky;
-  top: 50px; /* Adjust this value based on the height of your Header */
-  z-index: 100;
 }
+
+.li-signin {
+  margin-right: 10px;
+  
+}
+
+.pg-title {
+  display: flex;
+}
+
+.nav-btn {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+
+/* Universal Navbar Section Rules */
+
+.pg-title, .navbar-list, .li-signin {
+  display: flex;
+  list-style: none;
+}
+
+
+/* Footer Styling */
 
 .Footer {
   color: black;
@@ -34,4 +78,5 @@ h1 {
   position: relative;
   bottom: 10px;
   margin-top: 120px; /* Add some space above the footer */
+  text-align: center;
 }
