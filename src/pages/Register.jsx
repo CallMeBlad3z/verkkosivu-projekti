@@ -1,9 +1,8 @@
-import React from 'react'
-
 const Register = () => {
   return (
-    <div> <h1>Register page</h1>
-          <p>Register stuff here</p>
+    <div> 
+      <h1>Register page</h1>
+      <p>Register stuff here</p>
     </div>
   )
 }

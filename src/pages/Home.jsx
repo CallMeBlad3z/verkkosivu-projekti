@@ -1,4 +1,3 @@
-import React from 'react'
 import SlickSlider from '../components/SlickSlider'
 
 const Home = () => {
