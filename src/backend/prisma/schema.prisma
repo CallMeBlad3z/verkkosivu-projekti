@@ -17,8 +17,8 @@ model Order {
   orderID   Int       @id @default(autoincrement())
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  Products  Product[]
-  User      User      @relation(fields: [userID], references: [userID])
+  products  Product[]
+  user      User      @relation(fields: [userID], references: [userID])
   userID    Int
 }
 
@@ -29,17 +29,17 @@ model Product {
   stock        Int
   manufacturer String
   price        Int
-  Category     Category @relation(fields: [categoryID], references: [categoryID])
+  category     Category @relation(fields: [categoryID], references: [categoryID])
   categoryID   Int
-  Order        Order?   @relation(fields: [orderID], references: [orderID])
+  order        Order?   @relation(fields: [orderID], references: [orderID])
   orderID Int?
 }
 
 model Category {
   categoryID  Int       @id @default(autoincrement())
-  title       String
+  title       String  @unique 
   description String
-  Product     Product[]
+  product     Product[]
 }
 
 model User {
@@ -49,5 +49,5 @@ model User {
   lastname     String
   password     String
   isAdmin      Boolean @default(false)
-  Order        Order[]
+  order        Order[]
 }
