@@ -8,22 +8,22 @@ import Cart from './pages/Cart';
 import Header from './components/Header';
 import SingleProductView from './pages/SingleProductView';
 import Footer from './components/Footer';
+
 function App() {
 	
-
 	return (
 	<BrowserRouter>
 	<Header />
 		<Routes>
 			<Route path="/" element={<Home />} />
-			<Route path="/singleProductView" element={<SingleProductView />} />
+			<Route path="/product/:id" element={<SingleProductView />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/register" element={<Register />} />
 			<Route path="/admin" element={<AdminDashboard />} />
 			<Route path="/user" element={<UserDashboard />} />
 			<Route path="/cart" element={<Cart />} />
 		</Routes>
-	<Footer />  
+	    <Footer />  
 	</BrowserRouter>
 	);
 }

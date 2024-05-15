@@ -1,9 +1,9 @@
-import V1 from '../assets/V1.jpg';
+// import V1 from '../assets/V1.jpg';
 import { useNavigate } from "react-router-dom";
 
-function ProductCard() {
+function ProductCard({ p }) { // p = product
 
-    useNavigate();
+    const navigate = useNavigate();
 
     return (
         <div className="card">
@@ -19,7 +19,7 @@ function ProductCard() {
         <div className="card_button">
         <button
           className="btn btn-primary col card-button"
-          onClick={() => navigate(`/singleProductView/${p.slug}`)}
+          onClick={() => navigate(`/product/test`)} // tuotteen id URL:ssä
           >
           View Product
         </button>
@@ -37,7 +37,7 @@ function ProductCard() {
         </div>
   
   
-         {/* kun tietokanta kytketty yms, product voisi olla suurinpiirtein tällainen: 
+         {/* kun tietokanta kytketty yms, product voisi olla esim suurinpiirtein tällainen: 
          
          <img
             className="card-image"

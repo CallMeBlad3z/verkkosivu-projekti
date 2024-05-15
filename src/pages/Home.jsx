@@ -23,7 +23,7 @@ const Home = () => {
           ))}
         </div>
 
-          {/* kun tietokanta kytkettynä ym, voi tuotteet mäppää suurinpiirtein näin: 
+          {/* kun tietokanta kytkettynä ym, voi tuotteet mäppää esim suurinpiirtein näin: 
               <div
                 className="product_row">
                 {products?.map((p) => (

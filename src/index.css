@@ -114,6 +114,20 @@ h1 {
 
 .btn-outline-primary.card-button {
   border-bottom-right-radius: 5px;
+
+/* single-product-view */
+
+  .single-card {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgb(111, 205, 205);
+    background-color: white;
+    max-width: 270px;
+    display: inline-block;
+  }
 }
 
 /* Footer Styling */
