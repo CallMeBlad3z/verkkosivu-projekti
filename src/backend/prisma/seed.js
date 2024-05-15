@@ -28,10 +28,10 @@ async function main() {
 	const janedoe = await prisma.user.create({
 		data: {
 			email: "janedoe@prisma.io",
-			firstname: "John",
+			firstname: "Jane",
 			lastname: "Doe",
 			password: "password123",
-			isAdmin: true,
+			isAdmin: false,
 		},
 	});
 	console.log({ johndoe, janedoe });
