@@ -84,7 +84,7 @@ function Product() {
         <img className="card-image" src="https://via.placeholder.com/150" alt="img"></img>
        {/* <img src={V1} alt="img"></img>*/}
         <h1>zzzzz</h1>
-        <p></p>
+        <p>dfsgfdsgfdsghdf</p>
         </div>
     );
     }

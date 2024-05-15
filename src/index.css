@@ -98,3 +98,9 @@ h1 {
   max-width:2px;
   display: inline-block;
 }
+
+.card .card-image {
+  max-width: 60%;
+  height: auto;
+  border-radius: 50%;
+}
