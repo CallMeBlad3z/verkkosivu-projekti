@@ -1,60 +1,31 @@
-/*import { Badge } from "antd";
-import toast from "react-hot-toast";
+import V1 from '../assets/V1.jpg';
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../context/cart";
 
-export default function ProductCard({ p }) {
-  // context
-  const [cart, setCart] = useCart();
-  // hooks
-  const navigate = useNavigate();
+function ProductCard() {
 
-  return (
-    <div className="card mb-3 hoverable">
-      <Badge.Ribbon text={`${p?.sold} sold`} color="red">
-        <Badge.Ribbon
-          text={`${
-            p?.quantity >= 1
-              ? `${p?.quantity - p?.sold} in stock`
-              : "Out of stock"
-          }`}
-          placement="start"
-          color="green"
-        >
-          <img
-            className="card-img-top"
-            src={`${process.env.REACT_APP_API}/product/photo/${p._id}`}
-            alt={p.name}
-            style={{ height: "300px", objectFit: "cover" }}
-          />
-        </Badge.Ribbon>
-      </Badge.Ribbon>
+    useNavigate();
 
-      <div className="card-body">
-        <h5>{p?.name}</h5>
+    return (
+        <div className="card">
+        <img  className="card-image" src="https://via.placeholder.com/150" alt="img"></img>
+         {/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
+ 
+        <h2 className="card-title">Title </h2>
+        <p className="card-text">price </p>
+        <p className="card-text">description </p>
+        <p className="card-text">stock </p>
+        <p className="card-text">manufacturer </p>
 
-        <h4 className="fw-bold">
-          {p?.price?.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD",
-          })}
-        </h4>
-
-        <p className="card-text">{p?.description?.substring(0, 60)}...</p>
-      </div>
-
-      <div className="d-flex justify-content-between">
+        <div className="card_button">
         <button
           className="btn btn-primary col card-button"
-          style={{ borderBottomLeftRadius: "5px" }}
-          onClick={() => navigate(`/product/${p.slug}`)}
-        >
+          onClick={() => navigate(`/singleProductView/${p.slug}`)}
+          >
           View Product
         </button>
 
         <button
           className="btn btn-outline-primary col card-button"
-          style={{ borderBottomRightRadius: "5px" }}
           onClick={() => {
             setCart([...cart, p]);
             localStorage.setItem("cart", JSON.stringify([...cart, p]));
@@ -63,28 +34,52 @@ export default function ProductCard({ p }) {
         >
           Add to Cart
         </button>
-      </div>
-
-      {/* <p>{moment(p.createdAt).fromNow()}</p>
-      <p>{p.sold} sold</p> */
-//import e = require("express");
-
-//}
-   /* </div>
-  );
-}*/
-
-import V1 from '../assets/V1.jpg';
-
-function ProductCard() {
-    return (
-        <div className="card">
-        {/*<img src="https://via.placeholder.com/150" alt="img"></img>*/}
-        <img src={V1} alt="img"></img>
-        <h1>ProductCard</h1>
-        <p></p>
         </div>
-    );
+  
+  
+         {/* kun tietokanta kytketty yms, product voisi olla suurinpiirtein tällainen: 
+         
+         <img
+            className="card-image"
+            src={`${process.env.REACT_APP_API}/product/photo/${p._id}`}
+            alt={p.name}
+          /> 
+ 
+        <h2 className="card-title">Title {p?.title}</h2>
+        <p className="card-text">price {p?.price?.toLocaleString("en-EU", {
+            style: "currency",
+            currency: "EUR",  
+        })}</p>
+        <p className="card-text">description {p?.description?.substring(0, 60)}</p>
+        <p className="card-text">stock {`${
+            p?.quantity >= 1
+              ? `${p?.quantity - p?.sold} in stock`
+              : "Out of stock"
+          }`}</p>
+        <p className="card-text">manufacturer {p?.manufacturer}</p>
+
+        <div className="card_button">
+        <button
+          className="btn btn-primary col card-button"
+          onClick={() => navigate(`/product/${p.slug}`)}
+        >
+          View Product
+        </button>
+
+        <button
+          className="btn btn-outline-primary col card-button"
+          onClick={() => {
+            setCart([...cart, p]);
+            localStorage.setItem("cart", JSON.stringify([...cart, p]));
+            toast.success("Added to cart");
+          }}
+        >
+          Add to Cart
+        </button>
+        </div>*/}
+
+        </div>
+      );
     }
 
     export default ProductCard;
