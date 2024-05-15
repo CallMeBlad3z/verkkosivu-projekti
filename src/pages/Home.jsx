@@ -1,4 +1,3 @@
-import React from 'react'
 import SlickSlider from '../components/SlickSlider'
 import ProductCard from '../components/ProductCard'
 
