@@ -146,6 +146,24 @@ h1 {
   margin-bottom: 10px;
 }
 
+/* ¨Front page */
+
+.front-page-carousel-image img
+{
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.slide-over-text 
+{
+  position: absolute;
+  top: 30%;
+  left: 23%; 
+  max-width: 5%;
+}
+
 .product_row {
   display: flex;
   justify-content: center;
