@@ -1,6 +1,6 @@
-import { PrismaClient } from '@prisma/client'
-import process from 'process'
-import bcrypt from 'bcrypt'
+const { PrismaClient } = require("@prisma/client");
+const process = require("process");
+const bcrypt = require("bcrypt");
 
 const prisma = new PrismaClient().$extends({
 	query: {
@@ -16,25 +16,25 @@ const prisma = new PrismaClient().$extends({
 });
 
 async function main() {
-  const johndoe = await prisma.user.create({
-    data: {
-      email: 'johndoe@prisma.io',
-      firstname: 'John',
-      lastname: 'Doe',
-      password: 'password123',
-      isAdmin: true,
-    },
-  })
-  const janedoe = await prisma.user.create({
-    data: {
-      email: 'janedoe@prisma.io',
-      firstname: 'John',
-      lastname: 'Doe',
-      password: 'password123',
-      isAdmin: true,
-    },
-  })
-  console.log({ johndoe, janedoe })
+	const johndoe = await prisma.user.create({
+		data: {
+			email: "johndoe@prisma.io",
+			firstname: "John",
+			lastname: "Doe",
+			password: "password123",
+			isAdmin: true,
+		},
+	});
+	const janedoe = await prisma.user.create({
+		data: {
+			email: "janedoe@prisma.io",
+			firstname: "Jane",
+			lastname: "Doe",
+			password: "password123",
+			isAdmin: false,
+		},
+	});
+	console.log({ johndoe, janedoe });
 }
 
 main()
