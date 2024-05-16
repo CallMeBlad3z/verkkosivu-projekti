@@ -14,7 +14,7 @@ const prisma = new PrismaClient().$extends({
 		},
 	},
 });
-
+// Seed the database with some users and products
 async function main() {
   const johndoe = await prisma.user.create({
     data: {
@@ -34,7 +34,17 @@ async function main() {
       isAdmin: true,
     },
   })
-  console.log({ johndoe, janedoe })
+  const product1 = await prisma.product.create({
+	data: {
+		title: 'Päheet lasit',       
+		description: 'Joo.. Onhan nää iha hienot',
+		stock: 100,      
+		manufacturer: 'Amazon',
+		price: 100.00,     
+		image: 'product-images\\Rectangle 44.png',
+	},
+  })
+  console.log({ johndoe, janedoe, product1 })
 }
 
 main()
