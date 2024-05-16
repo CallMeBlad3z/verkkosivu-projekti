@@ -19,8 +19,6 @@ const prisma = new PrismaClient().$extends({
 usersRouter.post("/register", async (req, res) => {
 	try {
 		const data = req.body;
-		console.log(data);
-		console.log(data.username);
 		const user = await prisma.user.findUnique({
 			where: { email: data.email },
 		});
@@ -33,6 +31,7 @@ usersRouter.post("/register", async (req, res) => {
 				password: data.password,
 				firstname: data.firstname,
 				lastname: data.lastname,
+				isAdmin: data.isAdmin,
 			},
 		});
 		res.status(201).json({ user: newUser });

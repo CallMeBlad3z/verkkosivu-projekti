@@ -1,6 +1,6 @@
-import { PrismaClient } from '@prisma/client'
-import process from 'process'
-import bcrypt from 'bcrypt'
+const { PrismaClient } = require("@prisma/client");
+const process = require("process");
+const bcrypt = require("bcrypt");
 
 const prisma = new PrismaClient().$extends({
 	query: {
@@ -28,10 +28,10 @@ async function main() {
   const janedoe = await prisma.user.create({
     data: {
       email: 'janedoe@prisma.io',
-      firstname: 'John',
+      firstname: 'Jane',
       lastname: 'Doe',
       password: 'password123',
-      isAdmin: true,
+      isAdmin: false,
     },
   })
   const product1 = await prisma.product.create({
