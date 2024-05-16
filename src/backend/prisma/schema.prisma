@@ -28,8 +28,9 @@ model Product {
   description  String
   stock        Int
   manufacturer String
-  price        Int
-  category     Category @relation(fields: [categoryID], references: [categoryID])
+  price        Float
+  image        String
+  Category     Category @relation(fields: [categoryID], references: [categoryID])
   categoryID   Int
   order        Order?   @relation(fields: [orderID], references: [orderID])
   orderID Int?

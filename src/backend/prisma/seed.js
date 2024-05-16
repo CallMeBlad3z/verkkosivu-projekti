@@ -14,27 +14,37 @@ const prisma = new PrismaClient().$extends({
 		},
 	},
 });
-
+// Seed the database with some users and products
 async function main() {
-	const johndoe = await prisma.user.create({
-		data: {
-			email: "johndoe@prisma.io",
-			firstname: "John",
-			lastname: "Doe",
-			password: "password123",
-			isAdmin: true,
-		},
-	});
-	const janedoe = await prisma.user.create({
-		data: {
-			email: "janedoe@prisma.io",
-			firstname: "Jane",
-			lastname: "Doe",
-			password: "password123",
-			isAdmin: false,
-		},
-	});
-	console.log({ johndoe, janedoe });
+  const johndoe = await prisma.user.create({
+    data: {
+      email: 'johndoe@prisma.io',
+      firstname: 'John',
+      lastname: 'Doe',
+      password: 'password123',
+      isAdmin: true,
+    },
+  })
+  const janedoe = await prisma.user.create({
+    data: {
+      email: 'janedoe@prisma.io',
+      firstname: 'Jane',
+      lastname: 'Doe',
+      password: 'password123',
+      isAdmin: false,
+    },
+  })
+  const product1 = await prisma.product.create({
+	data: {
+		title: 'Päheet lasit',       
+		description: 'Joo.. Onhan nää iha hienot',
+		stock: 100,      
+		manufacturer: 'Amazon',
+		price: 100.00,     
+		image: 'product-images\\Rectangle 44.png',
+	},
+  })
+  console.log({ johndoe, janedoe, product1 })
 }
 
 main()
