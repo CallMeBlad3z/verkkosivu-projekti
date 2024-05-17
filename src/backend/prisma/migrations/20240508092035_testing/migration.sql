@@ -15,7 +15,6 @@ CREATE TABLE "Product" (
     "description" TEXT NOT NULL,
     "amount" INTEGER NOT NULL,
     "categoryID" INTEGER NOT NULL,
-    "orderID" INTEGER,
 
     CONSTRAINT "Product_pkey" PRIMARY KEY ("productID")
 );
@@ -49,6 +48,3 @@ ALTER TABLE "Order" ADD CONSTRAINT "Order_userID_fkey" FOREIGN KEY ("userID") RE
 
 -- AddForeignKey
 ALTER TABLE "Product" ADD CONSTRAINT "Product_categoryID_fkey" FOREIGN KEY ("categoryID") REFERENCES "Category"("categoryID") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Product" ADD CONSTRAINT "Product_orderID_fkey" FOREIGN KEY ("orderID") REFERENCES "Order"("orderID") ON DELETE SET NULL ON UPDATE CASCADE;

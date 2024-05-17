@@ -1,33 +1,27 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* Breakpoints */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@media only screen and (min-width: 475px) {
+  /** Sääntöjä tänne */
+  }
+  
+  @media only screen and (min-width: 640px) {
+  /** Sääntöjä tänne */
+  }
+  
+  @media only screen and (min-width: 768px) {
+  /** Sääntöjä tänne */
+  }
+  
+  @media only screen and (min-width: 1024px) {
+  /** Sääntöjä tänne */
+  }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+/* General Styling */
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: azure;
+  margin: 0;                    /* Todella outo margin 8px bodyssa, vaikka sellaista sääntöä ei täällä missään ole mainittu. Tämä on nyt väliaikainen ratkaisu. - Santeri */
 }
 
 h1 {
@@ -35,34 +29,177 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+/* Navbar Styling */
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color:antiquewhite;
+  padding: 10px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+.navbar-list {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.li-signin {
+  margin-right: 10px;
+  
+}
+
+.pg-title {
+  display: flex;
+}
+
+.nav-btn {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+
+/* Universal Navbar Section Rules */
+
+.pg-title, .navbar-list, .li-signin {
+  display: flex;
+  list-style: none;
+}
+
+/* Login Page Styling */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  background-color:beige;
+  padding: 20px;
+  width: 500px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.login-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: antiquewhite;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-input {
+  margin: 10px;
+  padding: 5px;
+  width: 200px;
+  border-radius: 0.25rem;
+}
+
+/* Product */
+
+.card {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px rgb(111, 205, 205);
+  background-color: white;
+  max-width: 270px;
+  display: inline-block;
+}
+
+.card .card-image {
+  max-width: 75%;
+  height: auto;
+  border-radius: 10%;
+  margin-bottom: 10px;
+}
+
+.card .card-title {
+  font-size: 1em;
+  margin: 0; 
+  color: black;
+  margin-bottom: 10px;
+}
+
+.card .card-text {
+  font-size: 0,5em;
+  margin: 0;
+  color: black;
+  margin-bottom: 10px;
+}
+
+/* ¨Front page */
+
+.front-page-carousel-image img
+{
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.slide-over-text 
+{
+  position: absolute;
+  top: 30%;
+  left: 23%; 
+  max-width: 5%;
+}
+
+.product_row {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-primary.card-button {
+  border-bottom-left-radius: 5px;
+}
+
+.btn-outline-primary.card-button {
+  border-bottom-right-radius: 5px;
+
+/* single-product-view */
+
+  .single-card {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgb(111, 205, 205);
+    background-color: white;
+    max-width: 270px;
+    display: inline-block;
   }
 }
+
+/* Footer Styling */
+
+.Footer {
+  color: black;
+  font-style: italic;
+  font-size: 16px;
+  position: relative;
+  bottom: 10px;
+  margin-top: 120px; /* Add some space above the footer */
+  text-align: center;
+}
+
