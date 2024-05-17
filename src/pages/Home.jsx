@@ -1,46 +1,45 @@
 import SlickSlider from '../components/SlickSlider'
-import ProductCard from '../components/ProductCard'
-import ProductCategoryCard from '../components/ProductCategoryCard'
+import { Link } from 'react-router-dom';
+
+const categories = [
+  { title: 'Polkupyörät', link: '/categories/1' },
+  { title: 'Varusteet', link: '/categories/2' },
+  { title: 'Outlet', link: '/categories/3' },
+  { title: 'Huolto', link: '/categories/4' },
+  { title: 'Varaosat', link: '/categories/5' },
+  { title: 'Rahoitus', link: '/categories/6' },
+];
 
 const Home = () => {
   return (
     <div>
-        <br /> 
-        <SlickSlider />
-        <br />
-        <br />
-        <div className="product_row">
-          {/* kehityksenaikainen koodi, kunnes tietokanta kytketty yms,. */}
-
-          <div>
-            {Array(2).fill().map((_, i) => (
-              <div className="product_row" key={i}>
-                {Array(3).fill().map((_, j) => (
-                  <ProductCard key={j} />
-                ))}
-              </div>
-            ))}
-          </div>
-
-            {/* kun tietokanta kytkettynä ym, voi tuotteet mäppää esim suurinpiirtein näin: 
-                <div
-                  className="product_row">
-                  {products?.map((p) => (
-                    <div className="col-md-3" key={p._id}>
-                      <ProductCard p={p} />
-                    </div>
-                  ))}
-                </div>*/}
+      <br />
+      <SlickSlider />
+      <br /> <br />
+    <div>
+    <div className="categories">
+    {categories.slice(0, 3).map((category, index) => (
+      <Link key={index} to={category.link}>
+        <div className="category-card">
+          <img className="card-image" src="https://via.placeholder.com/150" alt="img" />
+          <p className="card-title">{category.title}</p>
         </div>
-
-        <div>
-          <ProductCategoryCard />
-          <ProductCategoryCard />
-          <ProductCategoryCard />
-          <ProductCategoryCard />
+      </Link>
+    ))}
+  </div>
+  <div className="categories">
+    {categories.slice(3).map((category, index) => (
+      <Link key={index} to={category.link}>
+        <div className="category-card">
+          <img className="card-image" src="https://via.placeholder.com/150" alt="img" />
+          <p className="card-title">{category.title}</p>
         </div>
+      </Link>
+    ))}
+  </div>
+ </div>
+ </div>
 
-    </div>
   )
 }
 
