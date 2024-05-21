@@ -7,7 +7,6 @@ import Carousel_3 from '../assets/product-images/Carousel_3_Onni_Niilo.png';
 
 const SlickSlider = () => {
   const settings = {
-    dots: true,
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
