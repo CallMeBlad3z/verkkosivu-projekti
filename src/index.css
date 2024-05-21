@@ -191,6 +191,21 @@ h1 {
   }
 }
 
+/*Categories*/
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  flex-basis: calc(33.33% - 10px); /* Olettaen, että haluat 10px välin korttien välille */
+  margin: 5px;
+  text-align: center;
+  border: 1px solid #000;
+}
+
 /* Footer Styling */
 
 .Footer {

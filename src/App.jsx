@@ -8,6 +8,7 @@ import Cart from './pages/Cart';
 import Header from './components/Header';
 import SingleProductView from './pages/SingleProductView';
 import Footer from './components/Footer';
+import CategoriesView from './pages/CategoriesView';
 
 function App() {
 	
@@ -16,7 +17,8 @@ function App() {
 	<Header />
 		<Routes>
 			<Route path="/" element={<Home />} />
-			<Route path="/product/:id" element={<SingleProductView />} />
+			<Route path="/categories/:id" element={<CategoriesView />} />	
+			<Route path="/product/:productName" element={<SingleProductView />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/register" element={<Register />} />
 			<Route path="/admin" element={<AdminDashboard />} />
