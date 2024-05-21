@@ -38,7 +38,7 @@ async function main() {
 	data: {
 		title: 'Sunglasses',
 		description: 'Sunglasses for all occasions',
-		products: {
+		product: {
 		create: {
 			title: 'Cool Glasses',
 			description: 'These glasses are really cool',

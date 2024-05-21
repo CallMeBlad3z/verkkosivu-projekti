@@ -17,7 +17,6 @@ model Order {
   orderID   Int       @id @default(autoincrement())
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  products  Product[]
   user      User      @relation(fields: [userID], references: [userID])
   userID    Int
 }
@@ -32,13 +31,11 @@ model Product {
   image        String
   Category     Category @relation(fields: [categoryID], references: [categoryID])
   categoryID   Int
-  order        Order?   @relation(fields: [orderID], references: [orderID])
-  orderID Int?
 }
 
 model Category {
   categoryID  Int       @id @default(autoincrement())
-  title       String  @unique 
+  title       String
   description String?
   product     Product[]
 }
