@@ -1,5 +1,6 @@
 import SlickSlider from '../components/SlickSlider'
 import { Link } from 'react-router-dom';
+import SlickSliderProductCard from '../components/SlickSliderProductCard';
 
 const categories = [
   { title: 'Polkupyörät', link: '/categories/1' },
@@ -15,30 +16,33 @@ const Home = () => {
     <div>
       <br />
       <SlickSlider />
-      <br /> <br />
-    <div>
-    <div className="categories">
-    {categories.slice(0, 3).map((category, index) => (
-      <Link key={index} to={category.link}>
-        <div className="category-card">
-          <img className="card-image" src="https://via.placeholder.com/150" alt="img" />
-          <p className="card-title">{category.title}</p>
+      <div className="front-page-background-image">
+        <br />
+        <div className="product-card-carousel-container">
+          <SlickSliderProductCard />
         </div>
-      </Link>
-    ))}
-  </div>
-  <div className="categories">
-    {categories.slice(3).map((category, index) => (
-      <Link key={index} to={category.link}>
-        <div className="category-card">
-          <img className="card-image" src="https://via.placeholder.com/150" alt="img" />
-          <p className="card-title">{category.title}</p>
+        <div className="categories">
+        {categories.slice(0, 3).map((category, index) => (
+          <Link key={index} to={category.link}>
+            <div className="category-card">
+              <img className="card-image" src="https://via.placeholder.com/150" alt="img" />
+              <p className="card-title">{category.title}</p>
+            </div>
+          </Link>
+        ))}
         </div>
-      </Link>
-    ))}
-  </div>
- </div>
- </div>
+        <div className="categories">
+          {categories.slice(3).map((category, index) => (
+            <Link key={index} to={category.link}>
+              <div className="category-card">
+                <img className="card-image" src="https://via.placeholder.com/150" alt="img" />
+                <p className="card-title">{category.title}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
 
   )
 }

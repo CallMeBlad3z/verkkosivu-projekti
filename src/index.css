@@ -148,6 +148,16 @@ h1 {
 
 /* ¨Front page */
 
+.front-page-background-image 
+{
+  background-image: url("assets/product-images/Front_page_background.png");
+}
+
+.product-card-carousel-container 
+{
+  background-color: white;
+}
+
 .front-page-carousel-image img
 {
   width: 100%;
@@ -209,12 +219,12 @@ h1 {
 /* Footer Styling */
 
 .Footer {
-  color: black;
+  color: white;
+  background-color: black;
   font-style: italic;
   font-size: 16px;
   position: relative;
   bottom: 10px;
-  margin-top: 120px; /* Add some space above the footer */
   text-align: center;
 }
 
