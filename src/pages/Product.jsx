@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export function ProductPage() {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:3000/api/products")
+        fetch(`${process.env.REACT_APP_API_URL}/api/products`)
             .then((res) => {
             return res.json();
         })
@@ -16,7 +16,6 @@ export function ProductPage() {
 
     return (
         <section>
-
             {products.map((product) => (
                 <div key={product.id}>
                     <h2>{product.title}</h2>
