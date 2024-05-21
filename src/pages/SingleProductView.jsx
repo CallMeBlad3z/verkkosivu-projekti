@@ -1,6 +1,8 @@
-
+import { useParams } from 'react-router-dom';
    
    const SingleProductView = () => {
+    const { productName } = useParams();
+    // Fetch product data based on productName
      return (
       <div className="single-card">
       <img  className="card-image" src="https://via.placeholder.com/150" alt="img"></img>

@@ -1,9 +1,9 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import V1 from '../assets/V1.jpg'; 
-import V2 from '../assets/V2.jpg';  
-import V3 from '../assets/V3.jpg'; 
+import Carousel_1 from '../assets/product-images/Carousel_1.png'; 
+import Carousel_2 from '../assets/product-images/Carousel_2.png';  
+import Carousel_3 from '../assets/product-images/Carousel_3_Onni_Niilo.png'; 
 
 const SlickSlider = () => {
   const settings = {
@@ -19,17 +19,21 @@ const SlickSlider = () => {
   return (
     <div>
       <Slider {...settings}>
-        <div>
-  
+        <div className="front-page-carousel-image">
+          <img src={Carousel_1} alt="First slide" />
+          <div className="slide-over-text">
+          <p> ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!!
+          ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!!
+          ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!!
+          ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!!
+          ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!! </p>
+          </div>
         </div>
-        <div>
-        <img src={V1} alt="First slide" />
+        <div className="front-page-carousel-image">
+          <img src={Carousel_2} alt="Second slide" />
         </div>
-        <div>
-        <img src={V2} alt="Second slide" />
-        </div>
-        <div>
-        <img src={V3} alt="Third slide" />
+        <div className="front-page-carousel-image">
+          <img src={Carousel_3} alt="Third slide" />
         </div>
       </Slider>
     </div>
