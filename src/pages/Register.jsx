@@ -7,7 +7,7 @@ const Register = () => {
 
   async function sendData(data) {
         // maby dont hardcode the url
-    const response = await fetch("http://localhost:3000/api/register", {
+    const response = await fetch(`${import.meta.env.VITE_REACT_APP_API_URL}/api/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
