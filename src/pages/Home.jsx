@@ -1,16 +1,22 @@
 import SlickSlider from '../components/SlickSlider'
 import { Link } from 'react-router-dom';
 import SlickSliderProductCard from '../components/SlickSliderProductCard';
+import Rectangle23 from '../assets/product-images/Rectangle23.png';
+import VaraosatImg from '../assets/product-images/Varaosat.png'
+import OutletImg from '../assets/product-images/Outlet.png'
+import HuoltoImg from '../assets/product-images/Huolto.png'
+import RahoitusImg from '../assets/product-images/Rahoitus.png'
+import VarusteetImg from '../assets/product-images/Varusteet.png'
+import ProductCategoryCard from '../components/ProductCategoryCard';
 
 const categories = [
-  { title: 'Polkupyörät', link: '/categories/1' },
-  { title: 'Varusteet', link: '/categories/2' },
-  { title: 'Outlet', link: '/categories/3' },
-  { title: 'Huolto', link: '/categories/4' },
-  { title: 'Varaosat', link: '/categories/5' },
-  { title: 'Rahoitus', link: '/categories/6' },
+  { title: 'Polkupyörät', link: '/categories/1', imageUrl: Rectangle23 },
+  { title: 'Varusteet', link: '/categories/2', imageUrl: VarusteetImg },
+  { title: 'Outlet', link: '/categories/3', imageUrl: OutletImg },
+  { title: 'Huolto', link: '/categories/4', imageUrl: HuoltoImg },
+  { title: 'Varaosat', link: '/categories/5', imageUrl: VaraosatImg },
+  { title: 'Rahoitus', link: '/categories/6', imageUrl: RahoitusImg },
 ];
-
 const Home = () => {
   return (
     <div>
@@ -22,23 +28,8 @@ const Home = () => {
           <SlickSliderProductCard />
         </div>
         <div className="categories">
-        {categories.slice(0, 3).map((category, index) => (
-          <Link key={index} to={category.link}>
-            <div className="category-card">
-              <img className="card-image" src="https://via.placeholder.com/150" alt="img" />
-              <p className="card-title">{category.title}</p>
-            </div>
-          </Link>
-        ))}
-        </div>
-        <div className="categories">
-          {categories.slice(3).map((category, index) => (
-            <Link key={index} to={category.link}>
-              <div className="category-card">
-                <img className="card-image" src="https://via.placeholder.com/150" alt="img" />
-                <p className="card-title">{category.title}</p>
-              </div>
-            </Link>
+          {categories.map((category, index) => (
+          <ProductCategoryCard key={index} category={category} />
           ))}
         </div>
       </div>

@@ -1,9 +1,22 @@
-export default function ProductCategoryCard() 
-{
+import { Link } from 'react-router-dom';
+
+const ProductCategoryCard = ({ category}) => {
+    
+    const {title, link, imageUrl} = category;
+    
     return (
-        <div>
-            <h2 className="card-title"> Kategoria </h2>
-            <img  className="card-image" src="https://via.placeholder.com/150" alt="Kategoria kuva"></img>
+        <Link to={link}>
+        <div className="category-card">
+            <div className="category-title">
+                <p>{title}</p>
+            </div>
+            <div className="category-image">
+                <img src={imageUrl} alt={title} />
+            </div>
         </div>
+        </Link>
     );
-}
+};
+
+export default ProductCategoryCard;
+
