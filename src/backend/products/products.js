@@ -74,4 +74,25 @@ productRouter.get("/:id", async (req, res) => {
 	}
 });
 
+productRouter.get("/:id", async (req, res) => {
+	const prisma = new PrismaClient();
+	const id = parseInt(req.params.id);
+
+	try {
+		const product = await prisma.product.findUnique({
+			where: { productID: id },
+			include: {
+				Category: true,
+			},
+		});
+		if (!product) {
+			res.status(404).json({ error: "Product not found." });
+		} else {
+			res.status(200).json({ product });
+		}
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+});
+
 module.exports = productRouter;
