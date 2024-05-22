@@ -228,3 +228,132 @@ h1 {
   text-align: center;
 }
 
+/* CategoriesView Styling */
+
+
+.containerCate {
+  background-color: whitesmoke;
+}
+
+.headerCate {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  height: 350px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+
+.text-sectionCate {
+  width: 30%;
+  padding: 20px 0px 20px 30px;
+}
+
+.image-sectionCate {
+  width: 70%;
+  clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.headertitleCate {
+  font-size: 5rem;
+  margin: 0px 0px 40px 0px;
+}
+
+.text-sectionCate > p {
+  font-size: 1.4rem;
+  margin: 0px;
+}
+
+.categoryImageCate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-32%, -46.7%) scale(0.70);
+}
+
+.productListCate {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  
+}
+
+.productCardCate {
+  overflow: hidden;
+  margin: 0px 492px 20px 0px;
+  padding: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+  background-color: white;
+  display: grid;
+  gap: 0.2rem;
+  grid-template-rows: 80px 45px 65px 45px;
+  grid-template-columns: 475px 600px 300px;
+}
+
+
+.productImageCate {
+  transform: translate(-1%, -31%) scale(1.2);
+}
+
+.productNameCate {
+  font-size: 3rem;
+  color: black;
+  margin: 10px 0px 0px 20px;
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.productDescriptionCate {
+  font-size: 1.4rem;
+  color: black;
+  grid-area: 2 / 2 / 5 / 3;
+  border-left: solid 2px #000;
+  padding-left: 15px;
+  margin-left: 20px;
+}
+
+
+.starCate {
+  font-size: 2.5rem;
+  color: white;
+  text-shadow:
+    0 0 1px black, 
+    -1px -1px 1px black, 
+    -1px 1px 1px black, 
+    1px 1px 1px black, 
+    1px -1px 1px black;
+  grid-area: 2 / 3 / 4 / 3;
+  margin: 0px;
+  line-height: 1;
+  
+}
+
+.starCate .black-star {
+  font-size: 2.9rem;
+  color: black;
+  text-shadow: none;
+  line-height: 0.87;
+  vertical-align: bottom;
+}
+
+.priceCate {
+  font-size: 3.5rem;
+  color: rgb(181, 2, 181);
+  grid-area: 3 / 3 / 4 / 4;
+  margin: 0px 0px 0px 2px;
+}
+
+.addToCartButtonCate {
+  margin-left: 5px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  grid-area: 4 / 3 / 5 / 4;
+}
+
+.addToCartButtonCate:hover {
+  background-color: #08f818;
+  color: #000;
+}
