@@ -13,4 +13,9 @@ const db = new PrismaClient().$extends({
 	},
 });
 
-module.exports = { db };
+function excludeFields(user, keys) {
+	return Object.fromEntries(
+		Object.entries(user).filter(([key]) => !keys.includes(key))
+	);
+}
+module.exports = { db, excludeFields };
