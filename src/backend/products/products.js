@@ -1,5 +1,5 @@
 const productRouter = require("express").Router();
-const { PrismaClient } = require("@prisma/client");
+const { db } = require("../db");
 
 productRouter.post("/", async (req, res) => {
 	const { title, price, description, stock, manufacturer, category, userId } =
@@ -21,7 +21,7 @@ productRouter.post("/", async (req, res) => {
 					description,
 					stock,
 					manufacturer,
-					category: {
+					Category: {
 						connectOrCreate: {
 							where: {
 								title: category,
@@ -41,15 +41,34 @@ productRouter.post("/", async (req, res) => {
 });
 
 productRouter.get("/", async (req, res) => {
-	const prisma = new PrismaClient();
-
 	try {
-		const products = await prisma.product.findMany({
+		const products = await db.product.findMany({
 			include: {
-				category: true,
+				Category: true,
 			},
 		});
 		res.status(200).json({ products });
+	} catch (error) {
+		console.log(error.message);
+		res.status(500).json({ error: error.message });
+	}
+});
+
+productRouter.get("/:id", async (req, res) => {
+	const id = parseInt(req.params.id);
+
+	try {
+		const product = await db.product.findUnique({
+			where: { productID: id },
+			include: {
+				Category: true,
+			},
+		});
+		if (!product) {
+			res.status(404).json({ error: "Product not found." });
+		} else {
+			res.status(200).json({ product });
+		}
 	} catch (error) {
 		res.status(500).json({ error: error.message });
 	}

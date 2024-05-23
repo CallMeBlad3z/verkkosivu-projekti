@@ -11,42 +11,18 @@ const SlickSliderProductCard = () => {
     infinite: true,
     draggable: true,
     swipeToSlide: true,
-    touchTreshold: 1
+    touchTreshold: 1,
+    arrows:false
   };
+
+  const numberOfProducts = 10;
 
   return (
     <div>
       <Slider {...settings}>
-        <div>
-        <ProductCard />
-        </div>
-        <div>
-        <ProductCard />
-        </div>
-        <div>
-        <ProductCard />
-        </div>
-        <div>
-        <ProductCard />
-        </div>
-        <div>
-        <ProductCard />
-        </div>
-        <div>
-        <ProductCard />
-        </div>
-        <div>
-        <ProductCard />
-        </div>
-        <div>
-        <ProductCard />
-        </div>
-        <div>
-        <ProductCard />
-        </div>
-        <div>
-        <ProductCard />
-        </div>
+        {Array.from({ length: numberOfProducts }).map((_, index) => (
+        <ProductCard key={index} />
+        ))}
       </Slider>
     </div>
   );
