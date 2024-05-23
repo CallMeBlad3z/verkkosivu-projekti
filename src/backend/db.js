@@ -1,4 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
+const bcrypt = require("bcrypt");
 
 const db = new PrismaClient().$extends({
 	query: {
@@ -13,4 +14,9 @@ const db = new PrismaClient().$extends({
 	},
 });
 
-module.exports = { db };
+function excludeFields(user, keys) {
+	return Object.fromEntries(
+		Object.entries(user).filter(([key]) => !keys.includes(key))
+	);
+}
+module.exports = { db, excludeFields };

@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const usersRouter = require("express").Router();
-const { db } = require("../db");
+const { db, excludeFields } = require("../db");
 
 // todo: error handling and maybe redo it
 
@@ -22,8 +22,10 @@ usersRouter.post("/register", async (req, res) => {
 				isAdmin: data.isAdmin,
 			},
 		});
-		res.status(201).json({ user: newUser });
+		const filteredUser = excludeFields(newUser, ["password"]);
+		res.status(201).json({ user: filteredUser });
 	} catch (error) {
+		console.log(error.message);
 		res.status(500).json({ error: error.message });
 	}
 });
@@ -31,6 +33,7 @@ usersRouter.post("/register", async (req, res) => {
 usersRouter.post("/login", async (req, res) => {
 	try {
 		const data = req.body;
+		console.log("kirjaudutaan...", data.email);
 		const user = await db.user.findUnique({
 			where: { email: data.email },
 		});
@@ -41,7 +44,8 @@ usersRouter.post("/login", async (req, res) => {
 		if (!passwordMatch) {
 			return res.status(401).json({ error: "Invalid password." });
 		}
-		res.status(200).json({ user });
+		const filteredUser = excludeFields(user, ["password"]);
+		res.status(200).json({ user: filteredUser });
 	} catch (error) {
 		res.status(500).json({ error: error.message });
 	}
