@@ -10,23 +10,46 @@ import SingleProductView from "./pages/SingleProductView";
 import Footer from "./components/Footer";
 import CategoriesView from "./pages/CategoriesView";
 import { useEffect, useState } from "react";
+import { login } from "./services/auth";
 function App() {
 	const [products, setProducts] = useState([]);
-
+	const [user, setUser] = useState(null);
 	useEffect(() => {
 		fetch(`${import.meta.env.VITE_REACT_APP_API_URL}/api/products`)
 			.then((res) => {
 				return res.json();
 			})
 			.then((data) => {
-				console.log(data);
 				setProducts(data.products);
 			});
 	}, []);
-
+	useEffect(() => {
+		const loggedUserJSON = window.localStorage.getItem("loggedUser");
+		if (loggedUserJSON) {
+			const { user } = JSON.parse(loggedUserJSON);
+			setUser(user);
+		}
+	}, []);
+	function handleLogin(data) {
+		// maby dont hardcode the url
+		login(data).then((data) => {
+			if (data.user) {
+				window.localStorage.setItem("loggedUser", JSON.stringify(data));
+				setUser(data.user);
+			}
+		});
+	}
+	function handleLogout() {
+		try {
+			window.localStorage.removeItem("loggedUser");
+			setUser(null);
+		} catch (e) {
+			console.log(e);
+		}
+	}
 	return (
 		<div>
-			<Header />
+			<Header user={user} handleLogout={handleLogout} />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/categories/:id" element={<CategoriesView />} />
@@ -34,10 +57,10 @@ function App() {
 					path="/product/:id"
 					element={<SingleProductView products={products} />}
 				/>
-				<Route path="/login" element={<Login />} />
+				<Route path="/login" element={<Login handleLogin={handleLogin} />} />
+				<Route path="/user" element={<UserDashboard user={user} />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/admin" element={<AdminDashboard />} />
-				<Route path="/user" element={<UserDashboard />} />
 				<Route path="/cart" element={<Cart />} />
 			</Routes>
 			<Footer />

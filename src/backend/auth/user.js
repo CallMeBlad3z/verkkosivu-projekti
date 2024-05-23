@@ -25,6 +25,7 @@ usersRouter.post("/register", async (req, res) => {
 		const filteredUser = excludeFields(newUser, ["password"]);
 		res.status(201).json({ user: filteredUser });
 	} catch (error) {
+		console.log(error.message);
 		res.status(500).json({ error: error.message });
 	}
 });

@@ -16,41 +16,41 @@ const prisma = new PrismaClient().$extends({
 });
 // Seed the database with some users and products
 async function main() {
-  const johndoe = await prisma.user.create({
-    data: {
-      email: 'johndoe@prisma.io',
-      firstname: 'John',
-      lastname: 'Doe',
-      password: 'password123',
-      isAdmin: true,
-    },
-  })
-  const janedoe = await prisma.user.create({
-    data: {
-      email: 'janedoe@prisma.io',
-      firstname: 'Jane',
-      lastname: 'Doe',
-      password: 'password123',
-      isAdmin: false,
-    },
-  })
-  const category = await prisma.category.create({
-	data: {
-		title: 'Sunglasses',
-		description: 'Sunglasses for all occasions',
-		product: {
-		create: {
-			title: 'Cool Glasses',
-			description: 'These glasses are really cool',
-			stock: 100,
-			manufacturer: 'RayBan',
-			price: 200.00,
-			image: 'product-images\\Rectangle 44.png',
-			},	
+	const johndoe = await prisma.user.create({
+		data: {
+			email: "johndoe@prisma.io",
+			firstname: "John",
+			lastname: "Doe",
+			password: "password123",
+			isAdmin: true,
 		},
-	}
-  })
-  console.log({ johndoe, janedoe, category})
+	});
+	const janedoe = await prisma.user.create({
+		data: {
+			email: "janedoe@prisma.io",
+			firstname: "Jane",
+			lastname: "Doe",
+			password: "password123",
+			isAdmin: false,
+		},
+	});
+	const category = await prisma.category.create({
+		data: {
+			title: "Sunglasses",
+			description: "Sunglasses for all occasions",
+			product: {
+				create: {
+					title: "Cool Glasses",
+					description: "These glasses are really cool",
+					stock: 100,
+					manufacturer: "RayBan",
+					price: 200.0,
+					image: "product-images\\Rectangle 44.png",
+				},
+			},
+		},
+	});
+	console.log({ johndoe, janedoe, category });
 }
 
 main()
