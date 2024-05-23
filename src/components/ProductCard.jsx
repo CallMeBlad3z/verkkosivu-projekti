@@ -1,23 +1,22 @@
 // import V1 from '../assets/V1.jpg';
 import { useNavigate } from "react-router-dom";
 
-function ProductCard({ p }) { // p = product
+function ProductCard({product}) { // p = product
 
     const navigate = useNavigate();
-
     return (
         <div className="card">
         <img  className="card-image" src="https://via.placeholder.com/150" alt="img"></img>
          {/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
  
-        <p className="card-text">manufacturer </p>
+        <p className="card-text">{product.manufacturer} </p>
         <h2 className="card-title">Title </h2>
         <p className="card-text">price </p>
 
           <div className="card_button">
           <button
             className="btn btn-primary col card-button"
-            onClick={() => navigate(`/product/test`)} // tuotteen id URL:ssä
+            onClick={() => navigate(`/product/${product.productID}`)} // tuotteen id URL:ssä
             >
             View Product
           </button>
@@ -25,8 +24,8 @@ function ProductCard({ p }) { // p = product
           <button
             className="btn btn-outline-primary col card-button"
             onClick={() => {
-              setCart([...cart, p]);
-              localStorage.setItem("cart", JSON.stringify([...cart, p]));
+              setCart([...cart, product]);
+              localStorage.setItem("cart", JSON.stringify([...cart, product]));
               toast.success("Added to cart");
             }}
           >

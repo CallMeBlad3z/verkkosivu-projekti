@@ -4,9 +4,8 @@ const { db } = require("../db");
 productRouter.post("/", async (req, res) => {
 	const { title, price, description, stock, manufacturer, category, userId } =
 		req.body;
-	const prisma = new PrismaClient();
 	try {
-		const user = await prisma.user.findUnique({
+		const user = await db.user.findUnique({
 			where: { userID: userId },
 		});
 		if (!user || !user.isAdmin) {
@@ -14,7 +13,7 @@ productRouter.post("/", async (req, res) => {
 				error: "User not found or user is not allowed to perform this request.",
 			});
 		} else {
-			const product = await prisma.product.create({
+			const product = await db.product.create({
 				data: {
 					title,
 					price,
@@ -75,11 +74,10 @@ productRouter.get("/:id", async (req, res) => {
 });
 
 productRouter.get("/:id", async (req, res) => {
-	const prisma = new PrismaClient();
 	const id = parseInt(req.params.id);
 
 	try {
-		const product = await prisma.product.findUnique({
+		const product = await db.product.findUnique({
 			where: { productID: id },
 			include: {
 				Category: true,
