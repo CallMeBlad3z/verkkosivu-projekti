@@ -60,7 +60,10 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home products={products} />} />
 				<Route path="/categories/:id" element={<CategoriesView />} />
-				<Route path="/product/:id" element={<ProductsView />} />
+				<Route
+					path="/product/:id"
+					element={<SingleProductView products={products} />}
+				/>
 				<Route path="/login" element={<Login handleLogin={handleLogin} />} />
 				<Route path="/user" element={<UserDashboard user={user} />} />
 				<Route path="/register" element={<Register />} />
