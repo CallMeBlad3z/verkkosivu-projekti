@@ -8,14 +8,17 @@ import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import SingleProductView from "./pages/SingleProductView";
 import ProductsView from "./pages/Product";
-import ShoppingCart from "./pages/ShoppingCart";
+//import ShoppingCart from "./pages/ShoppingCart";
 import Footer from "./components/Footer";
 import CategoriesView from "./pages/CategoriesView";
 import { useEffect, useState } from "react";
 import { login } from "./services/auth";
+import { useNavigate } from "react-router-dom";
 function App() {
 	const [products, setProducts] = useState([]);
 	const [user, setUser] = useState(null);
+
+	const navigate = useNavigate();
 	useEffect(() => {
 		fetch(`http://localhost:3000/api/products`)
 			.then((res) => {
@@ -38,6 +41,7 @@ function App() {
 			if (data.user) {
 				window.localStorage.setItem("loggedUser", JSON.stringify(data));
 				setUser(data.user);
+				navigate("/");
 			}
 		});
 	}
@@ -49,19 +53,14 @@ function App() {
 			console.log(e);
 		}
 	}
+
 	return (
 		<div>
 			<Header user={user} handleLogout={handleLogout} />
 			<Routes>
 				<Route path="/" element={<Home products={products} />} />
-				<Route 
-					path="/categories/:id" 
-					element={<CategoriesView />} 
-				/>
-				<Route
-					path="/product/:id"
-					element={<ProductsView />}
-				/>
+				<Route path="/categories/:id" element={<CategoriesView />} />
+				<Route path="/product/:id" element={<ProductsView />} />
 				<Route path="/login" element={<Login handleLogin={handleLogin} />} />
 				<Route path="/user" element={<UserDashboard user={user} />} />
 				<Route path="/register" element={<Register />} />
