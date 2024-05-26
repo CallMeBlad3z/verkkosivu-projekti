@@ -25,13 +25,13 @@ export default function ProductCard({product}) {
         <h2 className="card-title">Title </h2>
         <p className="card-text">price </p>
 
-          <div className="card_button">
-          <button
-            className="btn btn-primary col card-button"
-            onClick={() => navigate(`/product/${product.productID}`)} // tuotteen id URL:ssä
-            >
-            View Product
-          </button>
+			<div className="card_button">
+				<button
+					className="btn btn-primary col card-button"
+					onClick={() => navigate(`/product/${product.productID}`)} // tuotteen id URL:ssä
+				>
+					View Product
+				</button>
 
           <button onClick={handleAddToCart}>Add to cart</button>
           </div>
@@ -77,8 +77,7 @@ export default function ProductCard({product}) {
           Add to Cart
         </button>
         </div>*/}
-
-        </div>
-      );
-    }
+		</div>
+	);
+}
 

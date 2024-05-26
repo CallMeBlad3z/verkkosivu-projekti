@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import CategoriesView from "./pages/CategoriesView";
 import { useEffect, useState } from "react";
 import { login } from "./services/auth";
+import { useNavigate } from "react-router-dom";
 function App() {
 
 	const [products, setProducts] = useState([]);
@@ -45,6 +46,7 @@ function App() {
 			if (data.user) {
 				window.localStorage.setItem("loggedUser", JSON.stringify(data));
 				setUser(data.user);
+				navigate("/");
 			}
 		});
 	}
@@ -56,15 +58,13 @@ function App() {
 			console.log(e);
 		}
 	}
+
 	return (
 			<CartProvider>
 			<Header user={user} handleLogout={handleLogout} />
 			<Routes>
 				<Route path="/" element={<Home products={products} />} />
-				<Route 
-					path="/categories/:id" 
-					element={<CategoriesView />} 
-				/>
+				<Route path="/categories/:id" element={<CategoriesView />} />
 				<Route
 					path="/product/:id"
 					element={<SingleProductView />}
