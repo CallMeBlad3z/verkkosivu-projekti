@@ -1,63 +1,35 @@
+import React, { useContext, useEffect, useState } from 'react';
+import { CartContext } from '../components/CartContext'; // replace with the actual path to your CartContext file
+
 export default function Cart() {
+  const { cart, increaseQuantity, decreaseQuantity, emptyCart } = useContext(CartContext);
+  //const [cartItems, setCartItems] = useState(cart);
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+  
+
+  console.log(cart); // Log the cart to the console for debugging
+
   return (
+    <section>
+      <h1>Shopping Cart</h1>
       <div>
-        <h1>Ostoskori</h1>
-        <list>
-          <div>
-              <h1>Shopping Cart</h1>
-              <div>
-                  <div>
-                      <div>
-                          <h2>Product Name</h2>
-                          <p>Price</p>
-                          <p>Quantity</p>
-                          <p>Total</p>
-                      </div>
-                      <div>
-                          <img src="https://via.placeholder.com/150" alt="product" />
-                          <h3>Product Name</h3>
-                          <p>Price</p>
-                          <p>Quantity</p>
-                          <p>Total</p>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <h2>Product Name</h2>
-                          <p>Price</p>
-                          <p>Quantity</p>
-                          <p>Total</p>
-                      </div>
-                      <div>
-                          <img src="https://via.placeholder.com/150" alt="product" />
-                          <h3>Product Name</h3>
-                          <p>Price</p>
-                          <p>Quantity</p>
-                          <p>Total</p>
-                      </div>
-                  </div>
-                  <div>
-                      <div>
-                          <h2>Product Name</h2>
-                          <p>Price</p>
-                          <p>Quantity</p>
-                          <p>Total</p>
-                      </div>
-                      <div>
-                          <img src="https://via.placeholder.com/150" alt="product" />
-                          <h3>Product Name</h3>
-                          <p>Price</p>
-                          <p>Quantity</p>
-                          <p>Total</p>
-                      </div>
-                  </div>
-              </div>
-              <div>
-                  <h2>Total: $0.00</h2>
-                  <button>Checkout</button>
-              </div>
-          </div>
-      </list>
-  </div>
-  )
+        {cart.map((product, index) => (
+          <ul key={index}>
+            <li className="balls">
+              <h2>{product.title}</h2>
+              <p>{product.price}€</p>
+              <p>Quantity: {product.quantity}</p>
+              <button onClick={() => increaseQuantity(product.id)}>+</button>
+              <button onClick={() => decreaseQuantity(product.id)}>-</button>
+              <img src={product.image} alt={product.name} />
+            </li>
+          </ul>
+        ))}
+      </div>
+      <button onClick={emptyCart}>Empty Cart</button>
+    </section>
+  );
 }
