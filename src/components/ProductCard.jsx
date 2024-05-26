@@ -1,6 +1,6 @@
 // import V1 from '../assets/V1.jpg';
 import React, { useContext, useEffect } from 'react';
-import { CartContext } from './CartContext'; // Make sure to adjust the path to your CartContext file
+import { CartContext } from './CartContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function ProductCard({product}) {
