@@ -2,7 +2,6 @@
 import React, { useContext, useEffect } from 'react';
 import { CartContext } from './CartContext'; // Make sure to adjust the path to your CartContext file
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 export default function ProductCard({product}) {
   
@@ -15,7 +14,6 @@ export default function ProductCard({product}) {
 
   const handleAddToCart = () => {
     addToCart(product);
-    toast("Added to cart", { type: "success" })
   };
 
     return (
