@@ -1,9 +1,23 @@
 // import V1 from '../assets/V1.jpg';
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect } from 'react';
+import { CartContext } from './CartContext'; // Make sure to adjust the path to your CartContext file
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-function ProductCard({product}) { // p = product
+export default function ProductCard({product}) {
+  
+  const navigate = useNavigate();
+  const { cart, addToCart } = useContext(CartContext);
 
-    const navigate = useNavigate();
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast("Added to cart", { type: "success" })
+  };
+
     return (
         <div className="card">
         <img  className="card-image" src="https://via.placeholder.com/150" alt="img"></img>
@@ -21,16 +35,7 @@ function ProductCard({product}) { // p = product
             View Product
           </button>
 
-          <button
-            className="btn btn-outline-primary col card-button"
-            onClick={() => {
-              setCart([...cart, product]);
-              localStorage.setItem("cart", JSON.stringify([...cart, product]));
-              toast.success("Added to cart");
-            }}
-          >
-            Lisää ostoskoriin
-          </button>
+          <button onClick={handleAddToCart}>Add to cart</button>
           </div>
   
   
@@ -78,6 +83,4 @@ function ProductCard({product}) { // p = product
         </div>
       );
     }
-
-    export default ProductCard;
 
