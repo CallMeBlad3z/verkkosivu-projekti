@@ -15,16 +15,17 @@ const Register = (handleRegister) => {
 		});
 	};
 	return (
-		<div>
-			<h1>Register page</h1>
-			<p>Register stuff here</p>
-			<form onSubmit={handleSubmit((data) => handleAccountCreation(data))}>
-				<input {...register("firstname")} placeholder="First name" />
-				<input {...register("lastname")} placeholder="First name" />
-				<input {...register("email")} placeholder="email" />
-				<input {...register("password")} placeholder="password" />
-				<input type="submit" />
-			</form>
+		<div className="containerReg">
+			<div className="boxReg">
+				<h1>Rekisteröidy</h1>
+				<form onSubmit={handleSubmit((data) => handleAccountCreation(data))}>
+					<input {...register("firstname")} placeholder="First name" />
+					<input {...register("lastname")} placeholder="First name" />
+					<input {...register("email")} placeholder="email" />
+					<input {...register("password")} placeholder="password" />
+					<input type="submit" />
+				</form>
+			</div>	
 		</div>
 	);
 };
