@@ -264,6 +264,126 @@ h1 {
 	text-align: center; /* Center the text */
 }
 
+
+/* Login Styling */
+
+
+.containerLog {
+	background-image: url("./assets/product-images/LogReg_back.png");
+	height: 95vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.boxLog {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: solid black 3px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+.item1Log h1{
+	font-family: "Didact Gothic", sans-serif;
+	font-size: 2.7rem;
+	text-decoration: underline;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+.item2Log{
+	margin-bottom: 35px;
+}
+.item2Log input {
+	font-size: 1.5rem;
+	font-family: "Didact Gothic";
+}
+.item3Log {
+	margin-bottom: 35px;
+}
+.item3Log input {
+	font-size: 1.5rem;
+	font-family: "Didact Gothic";
+}
+.item4Log {
+	text-align: center;
+	margin-bottom: 35px;
+}
+.item4Log input {
+	font-size: 2rem;
+	font-family: "Didact Gothic";
+	background-color: black;
+	color: white;
+
+}
+.item4Log input:hover {
+	color: rgb(116, 207, 24);
+}
+.item4Log input:active {
+	color: rgb(116, 207, 24);
+	background-color: rgb(1, 73, 1);
+}
+
+
+/* Register Styling */
+
+
+.containerReg {
+	background-image: url("./assets/product-images/LogReg_back.png");
+	height: 95vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.boxReg {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: solid black 3px;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+.boxReg h1{
+	font-family: "Didact Gothic", sans-serif;
+	font-size: 2.7rem;
+	text-decoration: underline;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+.boxReg form {
+	display: flex;
+	flex-direction: column;
+}
+
+.boxReg input {
+	margin-bottom: 35px;
+	font-size: 1.5rem;
+	font-family: "Didact Gothic";
+}
+
+.boxReg input:last-child {
+	font-size: 2rem;
+	background-color: black;
+	color: white;
+}
+
+
+.boxReg input:last-child:hover {
+	color: rgb(116, 207, 24);
+}
+.boxReg input:last-child:active {
+	color: rgb(116, 207, 24);
+	background-color: rgb(1, 73, 1);
+}
+
+
 /* Footer Styling */
 
 

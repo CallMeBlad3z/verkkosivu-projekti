@@ -7,13 +7,23 @@ export default function Login({ handleLogin }) {
 
 	//
 	return (
-		<div>
-			<h1>Login</h1>
-			<form onSubmit={handleSubmit((data) => handleLogin(data))}>
-				<input {...register("email")} placeholder="email" />
-				<input {...register("password")} placeholder="password" />
-				<input type="submit" />
-			</form>
+		<div className="containerLog">
+			<div className="boxLog">
+				<div className="item1Log">
+					<h1>Kirjaudu sisään</h1>
+				</div>
+				<form onSubmit={handleSubmit((data) => handleLogin(data))}>
+					<div className="item2Log">
+						<input {...register("email")} placeholder="email" />
+					</div>
+					<div className="item3Log">
+						<input {...register("password")} placeholder="password" />
+					</div>
+					<div className="item4Log">
+						<input type="submit" />
+					</div>
+				</form>	
+			</div>
 		</div>
 	);
 }
