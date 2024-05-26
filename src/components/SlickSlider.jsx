@@ -22,11 +22,7 @@ const SlickSlider = () => {
         <div className="front-page-carousel-image">
           <img src={Carousel_1} alt="First slide" />
           <div className="slide-over-text">
-          <p> ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!!
-          ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!!
-          ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!!
-          ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!!
-          ONNI JA NIILO LÄHTEVÄT PÄIVÄRETKELLE!!! </p>
+          <p> Welcome to our webshop! We offer a wide range of high-quality products, carefully curated to meet your needs. Whether you're looking for the latest tech gadgets, stylish home decor, or unique gifts, you'll find it here. Our commitment to customer service and satisfaction ensures a seamless shopping experience. Start exploring our collection today! </p>
           </div>
         </div>
         <div className="front-page-carousel-image">
