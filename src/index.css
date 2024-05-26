@@ -16,6 +16,9 @@
 	/** Sääntöjä tänne */
 }
 
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+
 /* General Styling */
 
 body {
@@ -227,12 +230,106 @@ h1 {
 
 /* Footer Styling */
 
+
+.didact-gothic-regular {
+	font-family: "Didact Gothic", sans-serif;
+}
+.Footer h2 {
+	font-size: 2rem;
+}
+
 .Footer {
+   	display: grid;
+  	grid-template-rows: 60px 240px 40px;
+  	grid-template-columns: 10% 20% 20% 20% 20% 10%;
 	color: white;
 	background-color: black;
+  	position: relative;
+  	gap: 10px;
+}
+
+.title1Foo {
+  	grid-area: 1 / 2 / 2 / 3;
+}
+.pa1Foo {
+	grid-area: 2 / 2 / 3 / 3;
+	margin-right: 50px;
+}
+.pa1Foo p {
+  	border-left: solid 2px white;
+  	padding-left: 20px;
+	font-size: 1.1rem;
+}
+
+.title2Foo {
+  	grid-area: 1 / 3 / 2 / 4;
+}
+.pa2Foo {
+  	grid-area: 2 / 3 / 3 / 4;
+}
+.pa2Foo p {
+	border-left: solid 2px white;
+	padding-left: 20px;
+	font-size: 1.1rem;
+}
+
+.title3Foo {
+  	grid-area: 1 / 4 / 2 / 5;
+}
+.list1Foo {
+  	grid-area: 2 / 4 / 3 / 5;
+}
+.list1Foo ul {
+  	border-left: solid 2px white;
+  	padding-left: 20px;
+}
+.list1Foo li {
+  	margin-bottom: 10px; 
+  	list-style: none;
+}
+
+.title4Foo {
+  	grid-area: 1 / 5 / 2 / 6;
+}
+.list2Foo {
+  	grid-area: 2 / 5 / 3 / 6;
+}
+.list2Foo ul {
+	border-left: solid 2px white;
+	padding-left: 20px;
+}
+.list2Foo li {
+	margin-bottom: 10px; 
+	list-style: none;
+}
+
+.Footer a {
+	font-size: 1.1rem;
+	color: white; 
+}
+.Footer a:link { 
+	color: white; 
+	text-decoration: none; 
+} 
+.Footer a:visited {
+	color: white;
+}
+.Footer a:hover {
+	color: rgb(116, 207, 24);
+	text-decoration: underline;
+}
+.Footer a:active {
+	color: orange;
+	text-decoration: underline;
+}
+
+.createdFoo {
+	grid-area: 3 / 1 / 4 / 6;
 	font-style: italic;
 	font-size: 16px;
 	position: relative;
 	bottom: 10px;
 	text-align: center;
 }
+
+
