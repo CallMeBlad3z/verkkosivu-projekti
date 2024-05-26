@@ -17,7 +17,7 @@ const categories = [
   { title: 'Varaosat', link: '/categories/5', imageUrl: VaraosatImg },
   { title: 'Rahoitus', link: '/categories/6', imageUrl: RahoitusImg },
 ];
-const Home = () => {
+const Home = ({products}) => {
   return (
     <div>
       <br />
@@ -25,7 +25,7 @@ const Home = () => {
       <div className="front-page-background-image">
         <br />
         <div className="product-card-carousel-container">
-          <SlickSliderProductCard />
+          <SlickSliderProductCard products={products} />
         </div>
         <div className="categories">
           {categories.map((category, index) => (

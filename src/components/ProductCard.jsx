@@ -1,41 +1,61 @@
 // import V1 from '../assets/V1.jpg';
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useState, useEffect } from "react";
 
-function ProductCard({ p }) { // p = product
+function ProductCard({ product }) {
+	// p = product
 
-    const navigate = useNavigate();
+	console.log(product);
+	const navigate = useNavigate();
+	const [cart, setCart] = useState([]);
 
-    return (
-        <div className="card">
-        <img  className="card-image" src="https://via.placeholder.com/150" alt="img"></img>
-         {/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
- 
-        <p className="card-text">manufacturer </p>
-        <h2 className="card-title">Title </h2>
-        <p className="card-text">price </p>
+	useEffect(() => {
+		const savedCart = localStorage.getItem("cart");
+		if (savedCart) {
+			setCart(JSON.parse(savedCart));
+		}
+	}, []);
 
-          <div className="card_button">
-          <button
-            className="btn btn-primary col card-button"
-            onClick={() => navigate(`/product/test`)} // tuotteen id URL:ssä
-            >
-            View Product
-          </button>
+	useEffect(() => {
+		localStorage.setItem("cart", JSON.stringify(cart));
+	}, [cart]);
 
-          <button
-            className="btn btn-outline-primary col card-button"
-            onClick={() => {
-              setCart([...cart, p]);
-              localStorage.setItem("cart", JSON.stringify([...cart, p]));
-              toast.success("Added to cart");
-            }}
-          >
-            Lisää ostoskoriin
-          </button>
-          </div>
-  
-  
-         {/* kun tietokanta kytketty yms, product voisi olla esim suurinpiirtein tällainen: 
+	const addToCart = (product) => {
+		setCart((prevCart) => [...prevCart, product]);
+		toast.success("Product added to cart");
+	};
+
+	return (
+		<div className="card">
+			<img
+				className="card-image"
+				src="https://via.placeholder.com/150"
+				alt="img"></img>
+			{/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
+
+			<p className="card-text">{product.manufacturer} </p>
+			<h2 className="card-title">{product.title} </h2>
+			<p className="card-text">{product.price} </p>
+
+			<div className="card_button">
+				<button
+					className="btn btn-primary col card-button"
+					onClick={() => navigate(`/product/${product.productID}`)} // tuotteen id URL:ssä
+				>
+					View Product
+				</button>
+
+				<button
+					className="btn btn-outline-primary col card-button"
+					onClick={() => {
+						addToCart(product);
+					}}>
+					Lisää ostoskoriin
+				</button>
+			</div>
+
+			{/* kun tietokanta kytketty yms, product voisi olla esim suurinpiirtein tällainen: 
          
          <img
             className="card-image"
@@ -75,10 +95,8 @@ function ProductCard({ p }) { // p = product
           Add to Cart
         </button>
         </div>*/}
+		</div>
+	);
+}
 
-        </div>
-      );
-    }
-
-    export default ProductCard;
-
+export default ProductCard;
