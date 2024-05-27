@@ -1,42 +1,29 @@
 // import V1 from '../assets/V1.jpg';
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { useState, useEffect } from "react";
+import React, { useContext, useEffect } from 'react';
+import { CartContext } from './CartContext';
+import { useNavigate } from 'react-router-dom';
 
-function ProductCard({ product }) {
-	// p = product
+export default function ProductCard({product}) {
+  
+  const navigate = useNavigate();
+  const { cart, addToCart } = useContext(CartContext);
 
-	console.log(product);
-	const navigate = useNavigate();
-	const [cart, setCart] = useState([]);
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
-	useEffect(() => {
-		const savedCart = localStorage.getItem("cart");
-		if (savedCart) {
-			setCart(JSON.parse(savedCart));
-		}
-	}, []);
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
 
-	useEffect(() => {
-		localStorage.setItem("cart", JSON.stringify(cart));
-	}, [cart]);
-
-	const addToCart = (product) => {
-		setCart((prevCart) => [...prevCart, product]);
-		toast.success("Product added to cart");
-	};
-
-	return (
-		<div className="card">
-			<img
-				className="card-image"
-				src="https://via.placeholder.com/150"
-				alt="img"></img>
-			{/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
-
-			<p className="card-text">{product.manufacturer} </p>
-			<h2 className="card-title">{product.title} </h2>
-			<p className="card-text">{product.price} </p>
+    return (
+        <div className="card">
+        <img  className="card-image" src="https://via.placeholder.com/150" alt="img"></img>
+         {/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
+ 
+        <p className="card-text">{product.manufacturer} </p>
+        <h2 className="card-title">Title </h2>
+        <p className="card-text">price </p>
 
 			<div className="card_button">
 				<button
@@ -46,16 +33,11 @@ function ProductCard({ product }) {
 					View Product
 				</button>
 
-				<button
-					className="btn btn-outline-primary col card-button"
-					onClick={() => {
-						addToCart(product);
-					}}>
-					Lisää ostoskoriin
-				</button>
-			</div>
-
-			{/* kun tietokanta kytketty yms, product voisi olla esim suurinpiirtein tällainen: 
+          <button onClick={handleAddToCart}>Add to cart</button>
+          </div>
+  
+  
+         {/* kun tietokanta kytketty yms, product voisi olla esim suurinpiirtein tällainen: 
          
          <img
             className="card-image"
@@ -99,4 +81,3 @@ function ProductCard({ product }) {
 	);
 }
 
-export default ProductCard;

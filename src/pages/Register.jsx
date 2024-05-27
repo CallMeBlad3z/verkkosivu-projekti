@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { createAccount } from "../services/auth";
 import { useNavigate } from "react-router-dom";
-const Register = (handleRegister) => {
+export default function Register(handleRegister) {
 	const { register, handleSubmit } = useForm();
 	const [data, setData] = useState("");
 	const navigate = useNavigate();
@@ -29,5 +29,3 @@ const Register = (handleRegister) => {
 		</div>
 	);
 };
-
-export default Register;

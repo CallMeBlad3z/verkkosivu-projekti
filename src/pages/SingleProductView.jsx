@@ -1,38 +1,36 @@
-import { useParams } from "react-router-dom";
+import { useContext, useState, useEffect } from 'react';
+import { CartContext } from '../components/CartContext';
+{/* tähän kunkin tuoteryhmän testikuva + lisää sen categoriesdata lootaan tuotteen kohdalle */}
 
-const SingleProductView = ({ products }) => {
-	let { id } = useParams();
-	const product = products.find((p) => p.productID === parseInt(id));
-	if (!product) {
-		return <p>loading.....</p>;
-	} else {
-		return (
-			<div className="single-card">
-				<img
-					className="card-image"
-					src="https://via.placeholder.com/150"
-					alt="img"></img>
-				{/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
-				<h2 className="card-title">{product.title} </h2>
-				<p className="card-text">{product.price} </p>
-				<p className="card-text">{product.description} </p>
-				<p className="card-text">{product.stock} </p>
-				<p className="card-text">{product.manufacturer} </p>
+export default function SingleProductView() {
+  const [products, setProducts] = useState([]);
+  const { addToCart } = useContext(CartContext);
 
-				<div className="card_button">
-					<button
-						className="card-button"
-						onClick={() => {
-							setCart([...cart, p]);
-							localStorage.setItem("cart", JSON.stringify([...cart, p]));
-							toast.success("Added to cart");
-						}}>
-						Add to Cart
-					</button>
-				</div>
-			</div>
-		);
-	}
-};
-
-export default SingleProductView;
+  useEffect(() => {
+      fetch(`http://localhost:3000/api/products`)
+          .then((res) => res.json())
+          .then((data) => {
+              console.log(data);
+              setProducts(data.products);
+          });
+  }, []);
+  
+  return (
+    <div className="product-container">
+      {Array.isArray(products) && products.map((product, index) => (
+        <div key={index} className="product-card">
+          <div className="product-image-container">
+            <img className="product-image" src={product.image} alt={product.title} />
+          </div>
+          <div className="product-info">
+            <h1 className="product-title">{product.title}</h1>
+            <p className="product-price">{product.price}€</p>
+            <p className="product-description">{product.description}</p>
+            <p className="product-manufacturer">Manufacturer: {product.manufacturer}</p>
+            <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to Cart</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
