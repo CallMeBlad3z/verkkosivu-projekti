@@ -1,7 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
 const process = require("process");
 const bcrypt = require("bcrypt");
-const { connect } = require("http2");
 
 const prisma = new PrismaClient().$extends({
 	query: {
