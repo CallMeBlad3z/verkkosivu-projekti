@@ -20,7 +20,6 @@ const SlickSliderProductCard = ({ products }) => {
 	return (
 		<div>
 			<Slider {...settings}>
-				
 					{products.map((p) => (
 						<ProductCard key={p.productID} product={p} />
 					))}
