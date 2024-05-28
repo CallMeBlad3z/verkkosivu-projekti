@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../components/CartContext";
 import Rectangle55 from '../assets/product-images/Rectangle55.png';
 import Rectangle66 from '../assets/product-images/Rectangle66.png';
 
 export default function CategoriesView() {
 	const [categories, setCategories] = useState([]);
+  const { cart, addToCart } = useContext(CartContext);
 	const { id } = useParams();
+
+  useEffect(() => {
+    //console.log(cart); // Log the cart to the console for debugging
+  }, [cart]);
 
 	useEffect(() => {
 		fetch(`http://localhost:3000/api/categories/${id}`)
@@ -38,8 +45,7 @@ export default function CategoriesView() {
 						<p className="productDescriptionCate">{product.description}</p>
 						<StarRating rating="3" />
 						<p className="priceCate">{product.price}</p>
-						{/* Add more product details as needed */}
-						<button className="addToCartButtonCate">Lisää koriin</button>
+						<button className="addToCartButtonCate" onClick={() => addToCart(product)}>Lisää koriin</button>
 					  </div>
 					))}
 				</div>
