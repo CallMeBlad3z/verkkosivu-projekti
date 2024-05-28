@@ -11,7 +11,7 @@ const SlickSliderProductCard = ({ products }) => {
 		infinite: true,
 		draggable: true,
 		swipeToSlide: true,
-		touchTreshold: 1000,
+		touchTreshold: 1,
 		arrows: false,
 		// The cards still change sizes too much and are not fully responsive, this is something to alleviate
 		// the issue for now considering time issues. REMOVE THESE IF CAUSES ISSUE ON DESKTOP VIEW!!
