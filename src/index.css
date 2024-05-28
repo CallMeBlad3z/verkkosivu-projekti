@@ -36,11 +36,13 @@ h1 {
 .navbar {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 	background-color: white;
 	padding: 10px;
 	font-size: 1.5rem;
+	width: 100%;
+	position: relative;
 }
 
 .navbar-list {
@@ -49,12 +51,19 @@ h1 {
 }
 
 .li-signin {
-	margin-right: 10px;
+	/* margin-right: 10px; */
 }
 
 .pg-title {
-	display: flex;
-	font-size: 2rem;
+	position: absolute;
+	font-size: 3rem;
+	left: 50%;
+	transform: translateX(-50%);
+	
+}
+
+.navbar-right-content-container{
+	display:flex;
 }
 
 .nav-btn {
