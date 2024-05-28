@@ -1,5 +1,4 @@
 import SlickSlider from '../components/SlickSlider'
-import { Link } from 'react-router-dom';
 import SlickSliderProductCard from '../components/SlickSliderProductCard';
 import Rectangle23 from '../assets/product-images/Rectangle23.png';
 import VaraosatImg from '../assets/product-images/Varaosat.png'
