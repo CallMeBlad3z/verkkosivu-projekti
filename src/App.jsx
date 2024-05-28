@@ -7,21 +7,20 @@ import UserDashboard from "./pages/UserDashboard";
 import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import SingleProductView from "./pages/SingleProductView";
-import CartProvider from './components/CartContext';
+import CartProvider from "./components/CartContext";
 import Footer from "./components/Footer";
 import CategoriesView from "./pages/CategoriesView";
 import { useEffect, useState } from "react";
 import { login } from "./services/auth";
 import { useNavigate } from "react-router-dom";
 function App() {
-
 	const [products, setProducts] = useState([]);
 	const [user, setUser] = useState(null);
 	const [cart, setCart] = useState(() => {
-		const savedCart = localStorage.getItem('cart');
+		const savedCart = localStorage.getItem("cart");
 		return savedCart ? JSON.parse(savedCart) : [];
-	  });
-
+	});
+	const navigate = useNavigate();
 	useEffect(() => {
 		fetch(`http://localhost:3000/api/products`)
 			.then((res) => {
@@ -39,7 +38,7 @@ function App() {
 			setUser(user);
 		}
 	}, []);
-	
+
 	function handleLogin(data) {
 		// maby dont hardcode the url
 		login(data).then((data) => {
@@ -60,15 +59,12 @@ function App() {
 	}
 
 	return (
-			<CartProvider>
+		<CartProvider>
 			<Header user={user} handleLogout={handleLogout} />
 			<Routes>
 				<Route path="/" element={<Home products={products} />} />
 				<Route path="/categories/:id" element={<CategoriesView />} />
-				<Route
-					path="/product/:id"
-					element={<SingleProductView />}
-				/>
+				<Route path="/product/:id" element={<SingleProductView />} />
 				<Route path="/login" element={<Login handleLogin={handleLogin} />} />
 				<Route path="/user" element={<UserDashboard user={user} />} />
 				<Route path="/register" element={<Register />} />
@@ -76,7 +72,7 @@ function App() {
 				<Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
 			</Routes>
 			<Footer />
-			</CartProvider>
+		</CartProvider>
 	);
 }
 

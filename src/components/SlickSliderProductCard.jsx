@@ -13,6 +13,24 @@ const SlickSliderProductCard = ({ products }) => {
 		swipeToSlide: true,
 		touchTreshold: 1,
 		arrows: false,
+		// The cards still change sizes too much and are not fully responsive, this is something to alleviate
+		// the issue for now considering time issues. REMOVE THESE IF CAUSES ISSUE ON DESKTOP VIEW!!
+		responsive: [
+			{
+			  breakpoint: 1024, // Tablet and up
+			  settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+			  },
+			},
+			{
+			  breakpoint: 600, // Mobile devices
+			  settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+			  },
+			},
+		  ],
 	};
 
 	//const numberOfProducts = products.length;
