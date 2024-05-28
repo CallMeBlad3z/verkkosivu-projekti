@@ -22,7 +22,7 @@ const SlickSlider = () => {
         <div className="front-page-carousel-image">
           <img src={Carousel_1} alt="First slide" />
           <div className="slide-over-text">
-          <p>Tervetuloa verkkokauppaamme! Tarjoamme laajan valikoiman korkealaatuisia tuotteita, jotka on huolellisesti valittu vastaamaan tarpeitasi. Etsitpä sitten uusimpia teknisiä laitteita, tyylikkäitä kodin sisustustarvikkeita tai ainutlaatuisia lahjoja, löydät ne täältä. Sitoutumisemme asiakaspalveluun ja tyytyväisyyteen takaa saumattoman ostokokemuksen. Aloita kokoelmamme tutkiminen jo tänään!</p>
+          <p>Welcome to our online store! We offer a wide range of high-quality products that have been carefully selected to meet your needs. Whether you're looking for the latest technical devices, stylish home decor items, or unique gifts, you'll find them here. Our commitment to customer service and satisfaction ensures a seamless shopping experience. Start exploring our collection today!</p>
           </div>
         </div>
         <div className="front-page-carousel-image">

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../components/CartContext";
 import Rectangle55 from '../assets/product-images/Rectangle55.png';
@@ -9,6 +9,7 @@ export default function CategoriesView() {
 	const [categories, setCategories] = useState([]);
   const { cart, addToCart } = useContext(CartContext);
 	const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     //console.log(cart); // Log the cart to the console for debugging
@@ -22,6 +23,8 @@ export default function CategoriesView() {
 				setCategories([data.category]); // Wrap the category in an array so you can still use map in your render
 			});
 	}, []);
+
+
 	return (
 		<div className="containerCate">
 		  {Array.isArray(categories) &&
@@ -29,23 +32,23 @@ export default function CategoriesView() {
 			  <div key={category.categoryID}>
 				<div className="headerCate">
 				  <div className="text-sectionCate">
-					<h1 className="headertitleCate">{category.title}</h1>
-					<p>{category.description}</p>
+            <h1 className="headertitleCate">{category.title}</h1>
+            <p>{category.description}</p>
 				  </div>
 				  <div className="image-sectionCate">
-					<img src={Rectangle55} className="categoryImageCate" alt={category.title} />
+					  <img src={Rectangle55} className="categoryImageCate" alt={category.title} />
 				  </div>
 				</div>
 				<div className="productListCate">
 				  {Array.isArray(category.product) &&
 					category.product.map((product) => (
 					  <div key={product.productID} className="productCardCate">
-						<img src={Rectangle66} alt={product.title} className="productImageCate" />
-						<h2 className="productNameCate">{product.title}</h2>
-						<p className="productDescriptionCate">{product.description}</p>
-						<StarRating rating="3" />
-						<p className="priceCate">{product.price}</p>
-						<button className="addToCartButtonCate" onClick={() => addToCart(product)}>Lisää koriin</button>
+              <img src={Rectangle66} alt={product.title} onClick={() => navigate(`/product/${product.productID}`)} className="productImageCate" />
+              <h2 onClick={() => navigate(`/product/${product.productID}`)} className="productNameCate">{product.title}</h2>
+              <p onClick={() => navigate(`/product/${product.productID}`)} className="productDescriptionCate">{product.description}</p>
+              <StarRating rating="3" />
+              <p onClick={() => navigate(`/product/${product.productID}`)} className="priceCate">{product.price}</p>
+              <button className="addToCartButtonCate" onClick={() => addToCart(product)}>Lisää koriin</button>
 					  </div>
 					))}
 				</div>
