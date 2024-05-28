@@ -10,6 +10,7 @@ import SingleProductView from "./pages/SingleProductView";
 import CartProvider from "./components/CartContext";
 import Footer from "./components/Footer";
 import CategoriesView from "./pages/CategoriesView";
+import Checkout from "./pages/Checkout";
 import { useEffect, useState } from "react";
 import { login } from "./services/auth";
 import { useNavigate } from "react-router-dom";
@@ -70,6 +71,7 @@ function App() {
 				<Route path="/register" element={<Register />} />
 				<Route path="/admin" element={<AdminDashboard />} />
 				<Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+				<Route path="/checkout" element={<Checkout />} />
 			</Routes>
 			<Footer />
 		</CartProvider>
