@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../components/CartContext"; // replace with the actual path to your CartContext file
+import { Link } from "react-router-dom";
 
 export default function Cart() {
 	const { cart, increaseQuantity, decreaseQuantity, emptyCart } =
 		useContext(CartContext);
-	//const [cartItems, setCartItems] = useState(cart);
 
 	useEffect(() => {
 		console.log(cart);
 	}, [cart]);
 
-	console.log(cart); // Log the cart to the console for debugging
+	//console.log(cart); // Log the cart to the console for debugging
 
 	return (
 		<section>
@@ -35,6 +35,9 @@ export default function Cart() {
 			</div>
       <h2>Total Price: {cart.reduce((total, product) => total + product.price * product.quantity, 0)}€</h2>
 			<button onClick={emptyCart}>Empty Cart</button>
+      <Link to="/checkout">
+        <button>Checkout</button>
+      </Link>
 		</section>
 	);
 }

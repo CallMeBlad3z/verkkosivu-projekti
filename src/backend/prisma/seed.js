@@ -37,8 +37,8 @@ async function main() {
 	const category = await prisma.category.createMany({
 		data: [
 			{
-				title: "Sunglasses",
-				description: "Sunglasses for all occasions",
+				title: "Bikes",
+				description: "Bikes for all terrains, from mountain bikes to city bikes.",
 			},
 			{
 				title: "Processors",
@@ -57,20 +57,20 @@ async function main() {
 	const products = await prisma.product.createMany({
 		data: [
 			{
-				title: "Cool Glasses",
-				description: "These glasses are really cool",
-				stock: 100,
-				manufacturer: "RayBan",
-				price: 200.0,
+				title: "Stoic 4",
+				description: "A phenomenal trail bike with no added squishy bits. The bike is available in two different colors: white, gold and red.",
+				stock: 50,
+				manufacturer: "Canyon",
+				price: 1900.0,
 				image: "product-images\\Rectangle 44.png",
 				categoryID: 1,
 			},
 			{
-				title: "Even cooler glasses",
-				description: "These glasses are even cooler",
+				title: "Helkama E-Jääkäri 7V",
+				description: "An electric bike with a powerful motor that can take you anywhere you want to go. The bike is equipped with a 7-speed Shimano gear system and hydraulic disc brakes. The bike is available in two different colors: olive green, brown and blue.",
 				stock: 100,
-				manufacturer: "Maken lasipaja",
-				price: 300.0,
+				manufacturer: "Helkama",
+				price: 2799.0,
 				image: "product-images\\Rectangle 44.png",
 				categoryID: 1,
 			},
