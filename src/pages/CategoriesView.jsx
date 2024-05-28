@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import Rectangle55 from '../assets/product-images/Rectangle55.png';
+import Rectangle66 from '../assets/product-images/Rectangle66.png';
 
 export default function CategoriesView() {
 	const [categories, setCategories] = useState([]);
@@ -15,27 +17,45 @@ export default function CategoriesView() {
 			});
 	}, []);
 	return (
-		<div className="category-container">
-			{Array.isArray(categories) &&
-				categories.map((category) => (
-					<div key={category.categoryID} className="category-card">
-						<div className="category-info">
-							<h1 className="category-title">{category.title}</h1>
-							<p className="category-description">{category.description}</p>
-						</div>
-						<div className="category-products">
-							{Array.isArray(category.product) &&
-								category.product.map((product) => (
-									<div key={product.productID} className="product-card">
-										<h2 className="product-title">{product.title}</h2>
-										<p className="product-description">{product.description}</p>
-										<p className="product-price">{product.price}</p>
-										{/* Add more product details as needed */}
-									</div>
-								))}
-						</div>
-					</div>
-				))}
+		<div className="containerCate">
+		  {Array.isArray(categories) &&
+			categories.map((category) => (
+			  <div key={category.categoryID}>
+				<div className="headerCate">
+				  <div className="text-sectionCate">
+					<h1 className="headertitleCate">{category.title}</h1>
+					<p>{category.description}</p>
+				  </div>
+				  <div className="image-sectionCate">
+					<img src={Rectangle55} className="categoryImageCate" alt={category.title} />
+				  </div>
+				</div>
+				<div className="productListCate">
+				  {Array.isArray(category.product) &&
+					category.product.map((product) => (
+					  <div key={product.productID} className="productCardCate">
+						<img src={Rectangle66} alt={product.title} className="productImageCate" />
+						<h2 className="productNameCate">{product.title}</h2>
+						<p className="productDescriptionCate">{product.description}</p>
+						<StarRating rating="3" />
+						<p className="priceCate">{product.price}</p>
+						{/* Add more product details as needed */}
+						<button className="addToCartButtonCate">Lisää koriin</button>
+					  </div>
+					))}
+				</div>
+			  </div>
+			))}
 		</div>
 	);
 }
+
+const StarRating = ({ rating }) => {
+  return (
+    <p className="starCate">
+      {Array.from({ length: 5 }, (v, i) => (
+        <span key={i} className={i < rating ? "black-star" : ""}>★</span>
+      ))}
+    </p>
+  );
+};
