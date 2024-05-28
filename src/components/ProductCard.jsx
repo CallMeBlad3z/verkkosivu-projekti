@@ -2,6 +2,8 @@
 import React, { useContext, useEffect } from 'react';
 import { CartContext } from './CartContext';
 import { useNavigate } from 'react-router-dom';
+import ProductPlaceHolderImage from '../assets/product-images/product_reel_image_placeholder.png';
+import { Link } from 'react-router-dom';
 
 export default function ProductCard({product}) {
   
@@ -18,24 +20,26 @@ export default function ProductCard({product}) {
 
     return (
         <div className="card">
-        <img  className="card-image" src="https://via.placeholder.com/150" alt="img"></img>
-         {/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
- 
-        <p className="card-text">{product.manufacturer} </p>
-        <h2 className="card-title">Title </h2>
-        <p className="card-text">price </p>
-
-			<div className="card_button">
-				<button
-					className="btn btn-primary col card-button"
-					onClick={() => navigate(`/product/${product.productID}`)} // tuotteen id URL:ssä
-				>
-					View Product
-				</button>
-
-          <button onClick={handleAddToCart}>Add to cart</button>
-          </div>
+          <img  className="card-image" src={ProductPlaceHolderImage} alt="img"></img>
+          {/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
   
+          <div className="card-information-buttons-container">
+            <div className="card-information-text-container">
+              <p className="card-manufacturer">{product.manufacturer} </p>
+              <h2 className="card-title">{product.title}</h2>
+              <p className="card-price">{product.price}€</p>
+            </div>
+
+            <div className="card_button">
+              {/* <button
+                className="btn btn-primary col card-button"
+                onClick={() => navigate(`/product/${product.productID}`)} // tuotteen id URL:ssä
+              >
+                View Product
+              </button> */}
+                <button onClick={handleAddToCart}>Lisää ostoskoriin</button>
+            </div>
+          </div>
   
          {/* kun tietokanta kytketty yms, product voisi olla esim suurinpiirtein tällainen: 
          
