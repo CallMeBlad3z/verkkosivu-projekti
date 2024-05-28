@@ -6,11 +6,10 @@ export default function Checkout() {
     useContext(CartContext);
 
   useEffect(() => {
-    console.log(cart);
+    //console.log(cart); // Log the cart to the console for debugging
   }, [cart]);
 
-  console.log(cart); // Log the cart to the console for debugging
-
+  
   return (
     <section>
         <h1>Shopping Cart</h1>
