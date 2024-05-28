@@ -36,6 +36,17 @@ usersRouter.post("/login", async (req, res) => {
 		console.log("kirjaudutaan...", data.email);
 		const user = await db.user.findUnique({
 			where: { email: data.email },
+			include: {
+				orders: {
+					include: {
+						OrderItem: {
+							include: {
+								product: true,
+							},
+						},
+					},
+				},
+			},
 		});
 		if (!user) {
 			return res.status(404).json({ error: "User not found." });

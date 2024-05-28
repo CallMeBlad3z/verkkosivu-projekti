@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Rectangle55 from '../assets/product-images/Rectangle55.png';
 import Rectangle66 from '../assets/product-images/Rectangle66.png';
