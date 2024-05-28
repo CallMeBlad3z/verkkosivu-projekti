@@ -1,24 +1,25 @@
 import { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../components/CartContext';
-{/* tähän kunkin tuoteryhmän testikuva + lisää sen categoriesdata lootaan tuotteen kohdalle */}
+import { useParams } from 'react-router-dom';
 
 export default function SingleProductView() {
   const [products, setProducts] = useState([]);
   const { addToCart } = useContext(CartContext);
+  const { id } = useParams();
 
   useEffect(() => {
-      fetch(`http://localhost:3000/api/products`)
-          .then((res) => res.json())
-          .then((data) => {
-              console.log(data);
-              setProducts(data.products);
-          });
+    fetch(`http://localhost:3000/api/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setProducts([data.product]); // Wrap the product in an array so you can still use map in your render
+      });
   }, []);
   
   return (
     <div className="product-container">
-      {Array.isArray(products) && products.map((product, index) => (
-        <div key={index} className="product-card">
+      {Array.isArray(products) && products.map((product) => (
+        <div key={product} className="product-card">
           <div className="product-image-container">
             <img className="product-image" src={product.image} alt={product.title} />
           </div>
