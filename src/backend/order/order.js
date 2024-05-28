@@ -15,7 +15,7 @@ orderRouter.post("/", async (req, res) => {
 						})),
 					},
 				},
-				address: orderData.adress,
+				address: orderData.address,
 				postalCode: orderData.postalCode,
 				city: orderData.city,
 				phonenumber: orderData.phonenumber,
