@@ -33,6 +33,7 @@ export default function Cart() {
 					</ul>
 				))}
 			</div>
+      <h2>Total Price: {cart.reduce((total, product) => total + product.price * product.quantity, 0)}€</h2>
 			<button onClick={emptyCart}>Empty Cart</button>
 		</section>
 	);
