@@ -17,9 +17,10 @@ model Order {
   orderID   Int         @id @default(autoincrement())
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
-  postalCode Int
   address    String
+  postalCode Int
   city       String
+  phonenumber String
   user      User        @relation(fields: [userID], references: [userID])
   userID    Int
   OrderItem OrderItem[]
