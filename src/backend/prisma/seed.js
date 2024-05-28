@@ -16,25 +16,24 @@ const prisma = new PrismaClient().$extends({
 });
 // Seed the database with some users and products
 async function main() {
-	const users = await prisma.user.createMany({
-		data: [
-			{
-				email: "johndoe@prisma.io",
-				firstname: "John",
-				lastname: "Doe",
-				password: "password123",
-				isAdmin: true,
-			},
-			{
-				email: "janedoe@prisma.io",
-				firstname: "Jane",
-				lastname: "Doe",
-				password: "password123",
-				isAdmin: false,
-			},
-		],
+	const user1 = await prisma.user.create({
+		data: {
+			email: "johndoe@prisma.io",
+			firstname: "John",
+			lastname: "Doe",
+			password: "password123",
+			isAdmin: true,
+		},
 	});
-
+	const user2 = await prisma.user.create({
+		data: {
+			email: "janedoe@prisma.io",
+			firstname: "Jane",
+			lastname: "Doe",
+			password: "password123",
+			isAdmin: false,
+		},
+	});
 	const category = await prisma.category.createMany({
 		data: [
 			{
@@ -131,7 +130,7 @@ async function main() {
 			},
 		],
 	});
-	console.log({ users, category, products });
+	console.log({ user1, user2, category, products });
 }
 
 main()
