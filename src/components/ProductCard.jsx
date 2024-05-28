@@ -1,12 +1,11 @@
 // import V1 from '../assets/V1.jpg';
-import React, { useContext, useEffect } from 'react';
-import { CartContext } from './CartContext';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect } from "react";
+import { CartContext } from "./CartContext";
+import { useNavigate } from "react-router-dom";
 
-export default function ProductCard({product}) {
-  
-  const navigate = useNavigate();
-  const { cart, addToCart } = useContext(CartContext);
+export default function ProductCard({ product }) {
+	const navigate = useNavigate();
+	const { cart, addToCart } = useContext(CartContext);
 
   useEffect(() => {
     //console.log(cart);
@@ -80,4 +79,3 @@ export default function ProductCard({product}) {
 		</div>
 	);
 }
-
