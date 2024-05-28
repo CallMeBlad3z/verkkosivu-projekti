@@ -28,7 +28,7 @@ export default function ProductCard({ product }) {
         {
           navigate(`/product/${product.productID}`);
         }
-      console.log(product);
+      //console.log(product);
   };
 
     return (
