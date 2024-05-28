@@ -15,6 +15,9 @@ orderRouter.post("/", async (req, res) => {
 						})),
 					},
 				},
+				postalCode: orderData.postalCode,
+				address: orderData.address,
+				city: orderData.city,
 			},
 		});
 		res.status(201).json({ order });
