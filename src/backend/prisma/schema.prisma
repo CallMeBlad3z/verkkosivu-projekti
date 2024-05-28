@@ -58,5 +58,5 @@ model User {
   lastname  String
   password  String
   isAdmin   Boolean @default(false)
-  order     Order[]
+  orders     Order[]
 }
