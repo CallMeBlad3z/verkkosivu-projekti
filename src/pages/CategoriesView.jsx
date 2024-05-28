@@ -1,37 +1,40 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-{/* tähän kunkin tuoteryhmän testikuva + lisää sen categoriesdata lootaan tuotteen kohdalle */}
+import { useParams } from 'react-router-dom';
 
 export default function CategoriesView() {
   const [categories, setCategories] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
-      fetch(`http://localhost:3000/api/categories`)
-          .then((res) => res.json())
-          .then((data) => {
-              console.log(data);
-              setCategories(data.categories);
-          });
+    fetch(`http://localhost:3000/api/categories/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCategories([data.category]); // Wrap the category in an array so you can still use map in your render
+      });
   }, []);
   
-
   return (
-    <div>
-      {Array.isArray(categories) && categories.map((category, index) => (
-        <div key={index}>
-            <h1 key={category.title}>{category.title}</h1>
-            <img href={category.image} alt={category.title} />
-            <p>{category.description}</p>
-            {Array.isArray(category.products) && category.products.map((product, index) => ( //WIP. Here should be displayed the products of the category
-                <div key={index}>
-                    <h2>{product.name}</h2>
-                    <Link to={`/product/${product.name}`}>
-                        <img src={product.image} alt={product.name} />
-                    </Link>
-                </div>
+    <div className="category-container">
+      {Array.isArray(categories) && categories.map((category) => (
+        <div key={category.id} className="category-card">
+          <div className="category-info">
+            <h1 className="category-title">{category.title}</h1>
+            <p className="category-description">{category.description}</p>
+          </div>
+          <div className="category-products">
+            {Array.isArray(category.products) && category.products.map((product) => (
+              <div key={product} className="product-card">
+                <h2 className="product-title">{product.title}</h2>
+                <p className="product-description">{product.description}</p>
+                <p className="product-price">{product.price}</p>
+                {/* Add more product details as needed */}
+              </div>
             ))}
+          </div>
         </div>
-    ))}
+      ))}
     </div>
-);
+  );
 }
