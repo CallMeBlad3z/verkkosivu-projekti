@@ -7,25 +7,23 @@ export default function ProductCard({ product }) {
 	const navigate = useNavigate();
 	const { cart, addToCart } = useContext(CartContext);
 
-	useEffect(() => {
-		console.log(cart);
-	}, [cart]);
+  useEffect(() => {
+    //console.log(cart);
+  }, [cart]);
 
-	const handleAddToCart = () => {
-		addToCart(product);
-	};
+  const handleAddToCart = () => {
+    addToCart(product);
+    console.log(product);
+  };
 
-	return (
-		<div className="card">
-			<img
-				className="card-image"
-				src="https://via.placeholder.com/150"
-				alt="img"></img>
-			{/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
+    return (
+        <div className="card">
+        <img  className="card-image" src="https://via.placeholder.com/150" alt="img"></img>
+         {/* jos haluaa kehityksen aikana käyttää kuvaa niin: <img className="card-image" src={V1} alt="img"></img>*/}
 
-			<p className="card-text">{product.manufacturer} </p>
-			<h2 className="card-title">Title </h2>
-			<p className="card-text">price </p>
+        <h2 className="card-title">{product.title}</h2>
+        <p className="card-text">{product.price}€</p>
+        <p className="card-text">{product.manufacturer}</p>
 
 			<div className="card_button">
 				<button
@@ -34,11 +32,11 @@ export default function ProductCard({ product }) {
 				>
 					View Product
 				</button>
-
-				<button onClick={handleAddToCart}>Add to cart</button>
-			</div>
-
-			{/* kun tietokanta kytketty yms, product voisi olla esim suurinpiirtein tällainen: 
+        <button onClick={handleAddToCart}>Add to cart</button>
+          </div>
+  
+  
+         {/* kun tietokanta kytketty yms, product voisi olla esim suurinpiirtein tällainen: 
          
          <img
             className="card-image"
