@@ -5,7 +5,7 @@ import Carousel_1 from '../assets/product-images/Carousel_1.png';
 import Carousel_2 from '../assets/product-images/Carousel_2.png';  
 import Carousel_3 from '../assets/product-images/Carousel_3_Onni_Niilo.png'; 
 
-const SlickSlider = () => {
+export default function SlickSlider() {
   const settings = {
     speed: 800,
     slidesToShow: 1,
@@ -35,5 +35,3 @@ const SlickSlider = () => {
     </div>
   );
 };
-
-export default SlickSlider;
