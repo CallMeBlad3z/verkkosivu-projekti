@@ -483,19 +483,20 @@ h1 {
 	display: flex;
 	flex-direction: column;
 	margin-top: 50px;
-	
+	width: 80%;
+	min-width: 1200px;
 }
   
 .productCardCate {
 	overflow: hidden;
-	margin: 0px 492px 20px 0px;
+	margin-bottom: 20px;
 	padding: 15px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
 	background-color: white;
 	display: grid;
 	gap: 0.2rem;
 	grid-template-rows: 80px 45px 65px 45px;
-	grid-template-columns: 475px 600px 300px;
+	grid-template-columns: 475px 35% 24%;
 }
   
   
@@ -507,7 +508,7 @@ h1 {
 	font-size: 3rem;
 	color: black;
 	margin: 10px 0px 0px 20px;
-	grid-area: 1 / 2 / 2 / 3;
+	grid-area: 1 / 2 / 2 / 4;
 }
   
 .productDescriptionCate {
