@@ -15,7 +15,6 @@ import { useEffect, useState } from "react";
 import { login } from "./services/auth";
 import { useNavigate } from "react-router-dom";
 
-
 function App() {
 	const [products, setProducts] = useState([]);
 	const [user, setUser] = useState(null);
@@ -73,7 +72,7 @@ function App() {
 				<Route path="/register" element={<Register />} />
 				<Route path="/admin" element={<AdminDashboard />} />
 				<Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
-				<Route path="/checkout" element={<Checkout />} />
+				<Route path="/checkout" element={<Checkout user={user} />} />
 			</Routes>
 			<Footer />
 		</CartProvider>

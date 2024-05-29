@@ -4,6 +4,7 @@ const orderRouter = require("express").Router();
 orderRouter.post("/", async (req, res) => {
 	try {
 		const orderData = req.body;
+		console.log(orderData);
 		const order = await db.order.create({
 			data: {
 				user: { connect: { userID: orderData.userID } },
