@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const ProductCategoryCard = ({ category }) => {
+export default function ProductCategoryCard({ category }) {
     
     const {title, link, imageUrl} = category;
     
@@ -17,6 +17,4 @@ const ProductCategoryCard = ({ category }) => {
         </Link>
     );
 };
-
-export default ProductCategoryCard;
 
