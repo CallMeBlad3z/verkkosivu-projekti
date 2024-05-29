@@ -14,6 +14,8 @@ import Checkout from "./pages/Checkout";
 import { useEffect, useState } from "react";
 import { login } from "./services/auth";
 import { useNavigate } from "react-router-dom";
+
+
 function App() {
 	const [products, setProducts] = useState([]);
 	const [user, setUser] = useState(null);

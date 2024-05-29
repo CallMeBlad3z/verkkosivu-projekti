@@ -22,7 +22,7 @@
 /* General Styling */
 
 body {
-	background-color: azure;
+	/*background-color: azure;*/
 	margin: 0; /* Todella outo margin 8px bodyssa, vaikka sellaista sääntöä ei täällä missään ole mainittu. Tämä on nyt väliaikainen ratkaisu. - Santeri */
 }
 
@@ -50,10 +50,6 @@ h1 {
 .navbar-list {
 	flex-direction: row;
 	justify-content: center;
-}
-
-.li-signin {
-	/* margin-right: 10px; */
 }
 
 .pg-title {
@@ -689,6 +685,126 @@ h1 {
 	background-color: rgb(1, 73, 1);
 }
 
+/* Checkout Styling */
+
+.checkout-page {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.order-cart-list-title {
+	font-size: 2rem;
+	margin-left: 2px;
+}
+
+.order-cart {
+	display: flex;
+	flex-direction: column;
+	margin-top: 5px;
+}
+
+.order-cart-list {
+	list-style: none;
+	border-top: #000 2px solid;
+	margin-bottom: 30px;
+	padding-left: 2px; /* Another strange padding issue, had to do this. */
+	width: 1000px;
+	margin-right: 400px;
+}
+
+.order-cart-item {
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	border: 1px solid hsl(0, 0%, 80%);
+	margin-top: 15px;
+	background-color: lightgrey;
+}
+
+.order-cart-item-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.order-cart-item-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.order-cart-item-quantity {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-right: 100px;
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+
+.order-cart-item-quantity-button {
+	border: none;
+	background-color: lightgrey;
+	font-weight: bold;
+	font-size: 1.3rem;
+	cursor: pointer;
+}
+
+.order-receiver {
+	width: 1000px;
+}
+
+.order-receiver-form {
+	display: flex;
+	flex-direction: column;
+	margin-top: 5px;
+	border-top:#000 2px solid;
+}
+
+.order-receiver-form-name,
+.order-receiver-form-address,
+.order-receiver-form-contact {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+}
+
+.order-receiver-form-input {
+	width: 400px;
+	height: 40px;
+	margin-right: 50px;
+}
+
+.order-receiver-form-input-postal {
+	width: 100px;
+	height: 40px;
+	margin-right: 15px;
+}
+
+.order-receiver-form-input-city {
+	width: 277px;
+	height: 40px;
+}
+
+.order-summary {
+	margin-top: 80px;
+	padding: 100px;
+}
+
+.order-summary-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 5px;
+	border:#000 2px solid;
+	margin-left: 15px;
+}
+
+
+.order-cart-item-info-img {
+	transform: translate(1%, -31%) scale(1.2);
+}
 
 /* Footer Styling */
 
