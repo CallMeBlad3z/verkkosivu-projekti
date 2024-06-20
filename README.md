@@ -1,4 +1,4 @@
-README ABOUT THE PROJECT
+# README ABOUT THE PROJECT
 
 This web-store example project was created as a project exercise during ICT-Camp training organized by Bear-IT. The aim of the training and project was to develop and showcase the development and programming skills of the persons who were involved in the project. 
 
@@ -18,9 +18,15 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## how to start backend:
+## How to start the project locally:
+What you need in order to start the project is postgreSQL and node installed. You should also make an .env file in the root of the backend folder and in there define the password, name and user of postgreSQL db you're using.
 
-cd in to src/backend, run
+1.  **npm install**, to get all the needed dependencies.
+2.  To get the backend working, cd into the backend folder with **cd /backend**
+3.  Do **npm install** in there too.
+4.  Then push the migrations into the database with **npx migrate dev**
+5.  Now just push the seeds into the database with **npx prisma db seed**
+6.  After that, just do **npm run dev** in the backend folder and in the root folder in order to get the project running.
 
 ```
 npm install && npx prisma migrate db && npm run dev
